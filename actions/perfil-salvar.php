@@ -1,4 +1,8 @@
 <?php
+// executa a conexao com o banco de dados 
+include_once '../includes/conexao.php';
+include_once '../includes/logado.php';
+
 // upload da foto
 $target_dir = "../contents/perfil/";
 $target_file = $target_dir . basename($_FILES["fotoPerfil"]["name"]);
@@ -10,8 +14,8 @@ $distancia = $_POST['raioDistancia'];
 // dados do usuario
 
 // atualizar dados do usuario no banco
-$sql = "UPDATE  SET Distacia = , Imagem =  WHERE UsuarioID = ".$_SESSION['Usuario']['UsuarioID'];
-mysqli_query($conexao,$sql);
+$sql = "UPDATE usuarios SET Distancia = $distancia, Imagem = '$target_file' WHERE UsuarioID = ".$_SESSION['Usuario']['UsuarioID'];
+$resultado = mysqli_query($conexao, $sql);
 // pegas a preferencias
 
 // excluir as preferencias do usuario

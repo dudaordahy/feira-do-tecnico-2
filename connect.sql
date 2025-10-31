@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/10/2025 às 20:02
+-- Tempo de geração: 31/10/2025 às 12:29
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -85,17 +85,12 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`UsuarioID`, `Nome`, `Sobrenome`, `Usuario`, `Email`, `Senha`, `CEP`, `Endereco`, `Numero`, `Complemento`, `Imagem`, `Cidade`, `Estado`, `Distancia`) VALUES
 (1, 'nome', 'sobrenome', 'usuario', 'email@oi.com.br', '123456', 1234567890, 'rua legal', 123, 'bloco v', '', 'porto', 'rs', 0),
 (2, 'Eduarda ', 'Ordahy', 'dudaordahy', 'dudasciortino@gmail.com', 'dudinha2532', 90660280, 'Rua Humberto de Campos', 1196, 'nao', '', 'Porto Alegre', 'RS', 0),
-(3, 'Eduarda ', 'Ordahy', 'dudaordahy', 'dudasciortino@gmail.com', 'dudinha2532', 90660280, 'Rua Humberto de Campos', 1196, 'nao', '', 'Porto Alegre', 'RS', 0);
+(4, 'Valentina', 'Farias', 'vava', 'valenborbafarias@gmail.com', 'vbf', 80500600, 'Chico Mendes', 104, 'nao', '', 'Dois Irmãos', 'rs', 0),
+(5, 'Jeferson', 'Silva', 'JSilva', 'jsilva@gmail', '0000', 90000000, 'Rua Humberto de Campos', 18, 'casa', '', 'POA', 'RS', 0);
 
 --
 -- Índices para tabelas despejadas
 --
-
---
--- Índices de tabela `preferencias`
---
-ALTER TABLE `preferencias`
-  ADD PRIMARY KEY (`PreferenciaID`);
 
 --
 -- Índices de tabela `usuarios`
@@ -108,16 +103,10 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de tabela `preferencias`
---
-ALTER TABLE `preferencias`
-  MODIFY `PreferenciaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `UsuarioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UsuarioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

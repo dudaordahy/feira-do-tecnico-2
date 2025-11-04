@@ -19,7 +19,7 @@ while ($dados = mysqli_fetch_assoc($resultado)) {
     echo '<input type="checkbox" value="'.$dados['PreferenciaID'].'" name="preferencia[]" id="">'.$dados['Nome'].'<br>';    
 }
 ?>
-<h1>Escolha a distãncia</h1>
+<h1>Escolha a distancia</h1>
 <input type="range" name="raioDistancia" id="">
 <button type="submit">Enviar</button>
 </form>

@@ -15,15 +15,12 @@ $distancia = $_POST['raioDistancia'];
 $UsuarioID = $_SESSION['Usuario']['UsuarioID'];
 
 // atualizar dados do usuario no banco
-$sql = "UPDATE usuarios SET Distancia = $distancia, Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
-$resultado = mysqli_query($conexao, $sql);
+$sql = "UPDATE usuarios SET Distancia = '$distancia', Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
+mysqli_query($conexao, $sql);
 
 // pega as preferencias
-$preferencias = $_POST['preferencia'];
 
-echo '<pre>';
-print_r($_SESSION);
-exit('</pre>');
+
 // excluir as preferencias do usuario
 
 

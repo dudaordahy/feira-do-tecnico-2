@@ -8,6 +8,6 @@ $password = "";
 $dbname = "connect";
 
 // conexao
-$conexao = mysqli_connect($servername, $username, $password,$dbname);
+$conexao = mysqli_connect($servername, $username, $password, $dbname);
 
 ?>

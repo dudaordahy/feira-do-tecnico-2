@@ -21,6 +21,9 @@ $resultado = mysqli_query($conexao, $sql);
 // pega as preferencias
 $preferencias = $_POST['preferencia'];
 
+echo '<pre>';
+print_r($_SESSION);
+exit('</pre>');
 // excluir as preferencias do usuario
 
 

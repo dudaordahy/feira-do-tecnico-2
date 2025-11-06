@@ -19,14 +19,15 @@ $sql = "UPDATE usuarios SET Distancia = '$distancia', Imagem = '$target_file' WH
 mysqli_query($conexao, $sql);
 
 // pega as preferencias
-
-
-// excluir as preferencias do usuario
-
+$preferencias = $_POST['preferencia'];
 
 // salva as preferencias do usuario
-
+foreach($preferencias as $preferencia){
+    $sql2 = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID) VALUES ($UsuarioID, $preferencia)";
+    mysqli_query($conexao, $sql2);
+}
 
 // rediceriona para pagina index
-
+header('Location: ../index.php');
+exit();
 ?>

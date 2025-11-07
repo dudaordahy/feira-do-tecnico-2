@@ -20,14 +20,21 @@ mysqli_query($conexao, $sql);
 
 // pega as preferencias
 $preferencias = $_POST['preferencia'];
+if(  count($preferencias) == 10 ){
 
-// salva as preferencias do usuario
-foreach($preferencias as $preferencia){
-    $sql2 = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID) VALUES ($UsuarioID, $preferencia)";
+    $sql2 = "DELETE FROM usuarios_preferencias WHERE UsuarioID = $UsuarioID;";
     mysqli_query($conexao, $sql2);
-}
 
-// rediceriona para pagina index
-header('Location: ../index.php');
-exit();
+    // salva as preferencias do usuario
+    foreach($preferencias as $posicao=>$preferencia){
+        $sql2 = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID,Ordem) VALUES ($UsuarioID, $preferencia,$posicao);";
+        mysqli_query($conexao, $sql2);
+    }
+    // rediceriona para pagina index
+    header('Location: ../index.php');
+    exit();
+}else{
+    // rediceriona para pagina index
+    header('Location: ../perfil.php?erro=1');
+}
 ?>

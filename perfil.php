@@ -3,7 +3,7 @@ include_once './includes/conexao.php';
 include_once './includes/logado.php';
 include_once './includes/header.php';
 ?>
-<form action="./actions/perfil-salvar.php" method="post"  enctype="multipart/form-data">
+<form action="./actions/perfil-salvar.php" method="post" enctype="multipart/form-data">
 <h1>Escolha foto de perfil</h1>
 <input type="file" name="fotoPerfil" id="fotoPerfil">
 
@@ -16,7 +16,7 @@ $resultado = mysqli_query($conexao,$sql);
 // laco de repeticao que percorre todos os dados do resultado
 while ($dados = mysqli_fetch_assoc($resultado)) {
     // imprimi na tela o input com os dados do banco
-    echo '<input type="checkbox" value="'.$dados['PreferenciaID'].'" name="preferencia[]" id="">'.$dados['Nome'].'<br>';    
+    echo '<input type="checkbox" value="'.$dados['PreferenciaID'].'" name="preferencia[]" id="preferencia">'.$dados['Nome'].'<br>';    
 }
 ?>
 <h1>Escolha a distancia</h1>

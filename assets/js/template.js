@@ -20,4 +20,4 @@ fetch(url)
     .catch(error => {
         // json em caso de erro
         console.error('Error fetching or parsing JSON:', error);
-    });
+});

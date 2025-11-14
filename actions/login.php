@@ -7,7 +7,7 @@ $user = $_POST['user'];
 $senha = $_POST['senha'];
 
 // monta o SQL que será executado no banco de dados
-$sql = "SELECT UsuarioID, Nome, Sobrenome, Email, Usuario, Imagem, CEP, Endereco, Cidade, Estado, Numero, Complemento, Distancia FROM usuarios WHERE Usuario = '{$user}' AND Senha = '{$senha}' ";
+$sql = "SELECT UsuarioID, Nome_completo, Email, Usuario, Imagem, CEP, Endereco, Cidade, Estado, Numero, Distancia FROM usuarios WHERE Usuario = '{$user}' AND Senha = '{$senha}' ";
 
 // executar o banco de dados
 $resultado = mysqli_query($conexao, $sql);
@@ -16,7 +16,7 @@ $resultado = mysqli_query($conexao, $sql);
 if($resultado->num_rows > 0){
     // validacao do usuario - cria a sessao
     $_SESSION['Usuario'] =  mysqli_fetch_assoc($resultado);
-    header('Location: ../perfil.php');
+    header('Location: ../index.php');
     print_r($_SESSION);
     exit('Usuario cadastrado');
 }else{

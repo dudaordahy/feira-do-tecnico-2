@@ -1,3 +1,17 @@
+let input = document.getElementById("fileInput");
+    let preview = document.getElementById("preview");
+
+    input.addEventListener("change", function() {
+        let file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                preview.innerHTML = "<img src='" + e.target.result + "'>";
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+
 // url que pega as preferencias do banco e tem json 
 const url = './actions/preferencia-lista.php'; 
 // 

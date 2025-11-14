@@ -1,0 +1,39 @@
+body{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_escolhas{
+    background-color: aqua;
+    width: 850px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Preview redondo */
+#preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /* mantém proporção sem esticar */
+    margin-top: 15px;
+    border: 2px solid #ccc;
+}

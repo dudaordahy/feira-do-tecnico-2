@@ -1,46 +1,89 @@
 <?php
 include_once './includes/conexao.php';
-include_once './includes/header.php';
+include_once './includes/header-cadastro.php';
 ?>
-<form action="./actions/login.php" method="post">
-    <h1>Login</h1>
-    <label for="usuario">Usuário</label><br>
-    <input type="text" id="user" name="user"><br>
-    <label for="senha">Senha</label><br>
-    <input type="password" id="senha" name="senha"><br><br>
-    <button type="submit">Enviar</button>
-</form>
-<hr>
-<form action="./actions/cadastro-usuario.php" method="post">
-    <h1>Cadastro</h1>
-    <label for="nome">Nome</label><br>
-    <input type="text" id="nome" name="nome"><br>
-    <label for="sobrenome">Sobrenome</label><br>
-    <input type="text" id="sobrenome" name="sobrenome"><br>
-    <label for="user">Nome de usuário</label><br>
-    <input type="text" id="user" name="user"><br>
-    <label for="email">Email</label><br>
-    <input type="email" id="email" name="email"><br>
-    <label for="cep">CEP</label><br>
-    <input type="text" id="cep" name="cep"><br>
-    <label for="estado">Estado</label><br>
-    <input type="text" id="estado" name="estado"><br>
-    <label for="cidade">Cidade</label><br>
-    <input type="text" id="cidade" name="cidade"><br>
-    <label for="endereco">Endereço</label><br>
-    <input type="text" id="endereco" name="endereco"><br>
-    <label for="numero">Numero</label><br>
-    <input type="number" id="numero" name="numero"><br>
-    <label for="complemento">Complemento</label><br>
-    <input type="text" id="complemento" name="complemento"><br>
-    <label for="senha">Senha</label><br>
-    <input type="password" id="senha" name="senha"><br><br>
-    <input type="hidden" name="longitude" value="-23.000">
-    <input type="hidden" name="latitude" value="23.000">
-    <button type="submit">Enviar</button>
-</form>
+<div class="container">
+        <div class="form-box">
+            <form action="./actions/login.php" method="post">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Usuário" name="user" required>
+                    <img src="./assets/img/usu.novo.jfif" class="usuario">
+                </div>
 
+                <div class="input-box">
+                    <input type="password" placeholder="Senha" name="senha" required>
+                    <img src="./assets/img/cadeado.novo.jfif" class="cadeado">
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+            
+            </form>
+        </div>
+
+        <div class="form-box cadastro">
+            <form action="./actions/cadastro-usuario.php" method="post">
+                <h1>Cadastro</h1>
+                 <div class="input-box">
+                    <input type="text" placeholder="Nome completo" name="nome_completo" required>
+                    <img src="./assets/img/nome.novo.jfif" class="usuario">
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Nome de usuário" name="user"required>
+                    <img src="./assets/img/usu.novo.jfif" class="usuario">
+                </div>
+
+                <div class="input-box">
+                    <input type="email" placeholder="Email" name="email" required>
+                     <img src="./assets/img/email.novo.jfif" class="usuario">
+                </div>
+                
+                <div class="input-box">
+                    <input type="text" placeholder="CEP" name="cep" required>
+                     <img src="./assets/img/loca.novo.jfif" class="usuario">
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Estado" name="estado" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Cidade" name="cidade" required>
+                </div> 
+
+                <div class="input-box">
+                    <input type="text" placeholder="Endereço completo" name="endereco" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="number" placeholder="Número" name="numero" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" placeholder="Senha" name="senha" required>
+                   <img src="./assets/img/cadeado.novo.jfif" class="cadeado">
+                </div>
+
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+        </div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Olá, seja bem-vinda(o)!</h1>
+                <p>Não tem uma conta?</p>
+                <button class="btn cadastro-btn">Cadastre-se</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Bem-vinda(o) de volta!</h1>
+                <p>Já tem uma conta?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+</div>
 
 <?php
-include_once './includes/footer.php';
+include_once './includes/footer-cadastro.php';
 ?>

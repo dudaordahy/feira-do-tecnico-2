@@ -1,3 +1,3 @@
-<script src="./assets/js/tamplate.js"></script>
+<script src="./assets/js/template.js"></script>
 </body>
 </html>

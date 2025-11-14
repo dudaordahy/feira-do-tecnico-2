@@ -10,12 +10,14 @@ move_uploaded_file($_FILES["fotoPerfil"]["tmp_name"], $target_file);
 
 // capturar a distancia
 $distancia = $_POST['raioDistancia'];
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
 
 // dados do usuario
 $UsuarioID = $_SESSION['Usuario']['UsuarioID'];
 
 // atualizar dados do usuario no banco
-$sql = "UPDATE usuarios SET Distancia = '$distancia', Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
+$sql = "UPDATE usuarios SET Longitude = '$longitude', Latitude = '$latitude', Distancia = '$distancia', Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
 mysqli_query($conexao, $sql);
 
 // pega as preferencias
@@ -27,7 +29,7 @@ if(  count($preferencias) == 10 ){
 
     // salva as preferencias do usuario
     foreach($preferencias as $posicao=>$preferencia){
-        $sql2 = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID,Ordem) VALUES ($UsuarioID, $preferencia,$posicao);";
+        $sql2 = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES ($UsuarioID, $preferencia,$posicao);";
         mysqli_query($conexao, $sql2);
     }
     // rediceriona para pagina index

@@ -35,6 +35,8 @@ include_once './includes/header.php';
     <input type="text" id="complemento" name="complemento"><br>
     <label for="senha">Senha</label><br>
     <input type="password" id="senha" name="senha"><br><br>
+    <input type="hidden" name="longitude" value="-23.000">
+    <input type="hidden" name="latitude" value="23.000">
     <button type="submit">Enviar</button>
 </form>
 

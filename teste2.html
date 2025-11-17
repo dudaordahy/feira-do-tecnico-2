@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Auto completar endereço + Lat/Lng</title>
+
+<style>
+input { padding: 10px; width: 300px; margin-bottom: 10px; display: block; }
+</style>
+
+</head>
+<body>
+
+<h2>Buscar Endereço pelo CEP</h2>
+
+<form method="POST" action="salvar.php">
+
+    <label>CEP:</label>
+    <input type="text" id="cep" name="cep" placeholder="Digite o CEP">
+
+    <label>Rua:</label>
+    <input type="text" id="rua" name="rua">
+
+    <label>Bairro:</label>
+    <input type="text" id="bairro" name="bairro">
+
+    <label>Cidade:</label>
+    <input type="text" id="cidade" name="cidade">
+
+    <label>Estado:</label>
+    <input type="text" id="uf" name="uf">
+
+    <label>Latitude:</label>
+    <input type="text" id="lat" name="lat" readonly>
+
+    <label>Longitude:</label>
+    <input type="text" id="lng" name="lng" readonly>
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+<script>
+// Quando digita o CEP → ViaCEP completa o endereço
+document.getElementById("cep").addEventListener("blur", function () {
+    let cep = this.value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+        alert("CEP inválido");
+        return;
+    }
+
+    fetch("https://viacep.com.br/ws/" + cep + "/json/")
+        .then(response => response.json())
+        .then(data => {
+            if (data.erro) {
+                alert("CEP não encontrado!");
+                return;
+            }
+
+            document.getElementById("rua").value = data.logradouro;
+            document.getElementById("bairro").value = data.bairro;
+            document.getElementById("cidade").value = data.localidade;
+            document.getElementById("uf").value = data.uf;
+
+            // Depois que preencher o endereço → pega lat/lng
+            buscarLatLng(
+                data.logradouro + ", " + data.bairro + ", " + data.localidade + " - " + data.uf
+            );
+        });
+});
+
+// Função para buscar latitude/longitude via Nominatim
+function buscarLatLng(endereco) {
+    let url = "buscar_lat_lng.php" + encodeURIComponent(endereco);
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "ok") {
+                document.getElementById("lat").value = data.lat;
+                document.getElementById("lng").value = data.lng;
+            } else {
+                alert("Não foi possível obter coordenadas");
+            }
+        })
+        .catch(() => alert("Erro ao buscar coordenadas"));
+}
+</script>
+
+</body>
+</html>

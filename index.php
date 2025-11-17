@@ -12,16 +12,12 @@ include_once './includes/header.php';
         <button type="submit">Enviar</button>
     </form>
 
-
-
-
 <!-- <ul id="listaPreferencias"></ul> -->
 
 
 
-
-
 </div>
+
 <?php
 include_once './includes/footer.php';
 ?>

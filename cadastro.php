@@ -40,20 +40,20 @@ include_once './includes/header-cadastro.php';
                 </div>
                 
                 <div class="input-box">
-                    <input type="text" placeholder="CEP" name="cep" required>
+                    <input type="text" placeholder="CEP" id="cep" name="cep" required>
                      <img src="./assets/img/loca.novo.jfif" class="usuario">
                 </div>
 
                 <div class="input-box">
-                    <input type="text" placeholder="Estado" name="estado" required>
+                    <input type="text" placeholder="Estado" id="estado" name="estado" required>
                 </div>
 
                 <div class="input-box">
-                    <input type="text" placeholder="Cidade" name="cidade" required>
+                    <input type="text" placeholder="Cidade" id="cidade" name="cidade" required>
                 </div> 
 
                 <div class="input-box">
-                    <input type="text" placeholder="Endereço completo" name="endereco" required>
+                    <input type="text" placeholder="Rua" id="rua" name="endereco" required>
                 </div>
 
                 <div class="input-box">

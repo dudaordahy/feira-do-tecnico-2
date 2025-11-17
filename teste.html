@@ -3,20 +3,17 @@
 <head>
     <meta charset="utf-8">
     <title>Mapa personalizado</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <style>
-        body {
-            height: 700px;
-            width: 100%;
-            overflow: hidden;
-        }
-        #map{
-            height: 700px;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <link rel="stylesheet" href="teste.css">
 </head>
 <body>
+        <div id="container_escolhas">
+            <h1>Escolha foto de perfil</h1>
+            <span class="btn" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
+            <input type="file" name="fotoPerfil" id="fileInput">
+            <div id="preview"></div>
+            <button id="proximo" type="submit"><img src="../assets/img/proximo.png" alt=""></button>
+        </div>
 
 <div id="map"></div>
 
@@ -47,6 +44,19 @@
     L.marker([latitude, longitude], { icon: iconeAzul }).addTo(map)
     .bindPopup('Local personalizado!');
 
+    let input = document.getElementById("fileInput");
+    let preview = document.getElementById("preview");
+
+    input.addEventListener("change", function() {
+        let file = this.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                preview.innerHTML = "<img src='" + e.target.result + "'>";
+            }
+            reader.readAsDataURL(file);
+        }
+    });
 </script>
 
 </body>

@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+
+#map{
+    height: 700px;
+    width: 100%;
+    z-index: -1;
+}
+
+#container_escolhas{
+    width: 900px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    background:#3bdac2;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#fileInput {
+    display: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #268f7f;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #268f7f;
+}
+
+/* Preview redondo */
+#preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /* mantém proporção sem esticar */
+    margin: 10px;
+    border: 2px solid #ccc;
+}
+
+#proximo{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#proximo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}

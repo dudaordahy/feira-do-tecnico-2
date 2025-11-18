@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 31/10/2025 às 12:29
+-- Tempo de geração: 18/11/2025 às 16:04
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -63,34 +63,76 @@ INSERT INTO `preferencias` (`PreferenciaID`, `Nome`, `Imagem`) VALUES
 
 CREATE TABLE `usuarios` (
   `UsuarioID` int(11) NOT NULL,
-  `Nome` varchar(50) NOT NULL,
-  `Sobrenome` varchar(150) NOT NULL,
+  `Nome_completo` varchar(100) NOT NULL,
   `Usuario` varchar(25) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `Senha` varchar(16) NOT NULL,
   `CEP` int(8) NOT NULL,
   `Endereco` varchar(150) NOT NULL,
   `Numero` int(5) NOT NULL,
-  `Complemento` varchar(100) NOT NULL,
   `Imagem` varchar(255) NOT NULL,
   `Cidade` varchar(150) NOT NULL,
   `Estado` varchar(2) NOT NULL,
-  `Distancia` int(11) NOT NULL
+  `Distancia` int(11) NOT NULL,
+  `Latitude` float NOT NULL,
+  `Longitude` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`UsuarioID`, `Nome`, `Sobrenome`, `Usuario`, `Email`, `Senha`, `CEP`, `Endereco`, `Numero`, `Complemento`, `Imagem`, `Cidade`, `Estado`, `Distancia`) VALUES
-(1, 'nome', 'sobrenome', 'usuario', 'email@oi.com.br', '123456', 1234567890, 'rua legal', 123, 'bloco v', '', 'porto', 'rs', 0),
-(2, 'Eduarda ', 'Ordahy', 'dudaordahy', 'dudasciortino@gmail.com', 'dudinha2532', 90660280, 'Rua Humberto de Campos', 1196, 'nao', '', 'Porto Alegre', 'RS', 0),
-(4, 'Valentina', 'Farias', 'vava', 'valenborbafarias@gmail.com', 'vbf', 80500600, 'Chico Mendes', 104, 'nao', '', 'Dois Irmãos', 'rs', 0),
-(5, 'Jeferson', 'Silva', 'JSilva', 'jsilva@gmail', '0000', 90000000, 'Rua Humberto de Campos', 18, 'casa', '', 'POA', 'RS', 0);
+INSERT INTO `usuarios` (`UsuarioID`, `Nome_completo`, `Usuario`, `Email`, `Senha`, `CEP`, `Endereco`, `Numero`, `Imagem`, `Cidade`, `Estado`, `Distancia`, `Latitude`, `Longitude`) VALUES
+(1, 'Eduarda Ordahy Sciortino', 'dudaordahy', 'dudasciortino@gmail.com', 'dudaordahy', 90660280, 'Rua Humberto de Campos', 1196, '', 'Porto Alegre', 'RS', 0, -30.0592, -51.1958);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `usuarios_preferencias`
+--
+
+CREATE TABLE `usuarios_preferencias` (
+  `ID` int(11) NOT NULL,
+  `UsuarioID` int(11) NOT NULL,
+  `PreferenciaID` int(11) NOT NULL,
+  `Ordem` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `usuarios_preferencias`
+--
+
+INSERT INTO `usuarios_preferencias` (`ID`, `UsuarioID`, `PreferenciaID`, `Ordem`) VALUES
+(47, 2, 1, 0),
+(48, 2, 2, 1),
+(49, 2, 3, 2),
+(50, 2, 4, 3),
+(51, 2, 5, 4),
+(52, 2, 6, 5),
+(53, 2, 7, 6),
+(54, 2, 9, 7),
+(55, 2, 10, 8),
+(56, 2, 11, 9),
+(87, 1, 1, 0),
+(88, 1, 2, 1),
+(89, 1, 3, 2),
+(90, 1, 4, 3),
+(91, 1, 5, 4),
+(92, 1, 6, 5),
+(93, 1, 7, 6),
+(94, 1, 8, 7),
+(95, 1, 9, 8),
+(96, 1, 10, 9);
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `preferencias`
+--
+ALTER TABLE `preferencias`
+  ADD PRIMARY KEY (`PreferenciaID`);
 
 --
 -- Índices de tabela `usuarios`
@@ -99,14 +141,32 @@ ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`UsuarioID`);
 
 --
+-- Índices de tabela `usuarios_preferencias`
+--
+ALTER TABLE `usuarios_preferencias`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `preferencias`
+--
+ALTER TABLE `preferencias`
+  MODIFY `PreferenciaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `UsuarioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UsuarioID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios_preferencias`
+--
+ALTER TABLE `usuarios_preferencias`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

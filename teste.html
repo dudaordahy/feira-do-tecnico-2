@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="teste.css">
 </head>
 <body>
-        <div id="container_escolhas">
+        <div class="container_escolhas">
             <h1>Escolha foto de perfil</h1>
             <span class="btn" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
             <input type="file" name="fotoPerfil" id="fileInput">
@@ -15,6 +15,23 @@
             <button id="proximo" type="submit"><img src="../assets/img/proximo.png" alt=""></button>
         </div>
 
+        <div class="nav_bar_inline">
+            <div id="cidade">
+                <h1 id="txt_cidade">Porto Alegre</h1>
+            </div>
+            <div id="perfil">
+                <a href="#" id="btn_perfil"><img src="#" alt=""></a>
+            </div>
+        </div>
+
+        <div class="nav_bar_coluna">
+            <div id="direct">
+                <a href="#"><img src="#" alt=""></a>
+            </div>
+            <div id="config">
+                <a href="#"><img src="#" alt=""></a>
+            </div>
+        </div>
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -28,7 +45,7 @@
 
     // Camada de mapa
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19
+        maxZoom: 20
     }).addTo(map);
 
     // Marcador

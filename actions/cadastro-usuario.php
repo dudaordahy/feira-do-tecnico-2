@@ -1,5 +1,4 @@
 <?php
-// executa a conexao com o banco de dados 
 include_once '../includes/conexao.php';
 
 // captura os dados
@@ -12,16 +11,52 @@ $cidade = $_POST['cidade'];
 $endereco = $_POST['endereco'];
 $numero = $_POST['numero'];
 $senha = $_POST['senha'];
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
 
-// monta o SQL que será executado no banco de dados
-$sql = "INSERT INTO usuarios (Nome_completo, Usuario, Email, CEP, Estado, Cidade, Endereco, Numero, Senha, Latitude, Longitude) VALUES ('{$nome_completo}', '{$user}', '{$email}', '{$cep}', '{$estado}', '{$cidade}', '{$endereco}', '{$numero}', '{$senha}', '{$latitude}','{$longitude}')";
+$enderecoCompleto = $endereco . ", " . 
+                    $numero . ", " . 
+                    $cidade . " - " . 
+                    $estado . ", Brasil";
 
-// executar o banco de dados
+// Codifica para URL
+$enderecoURL = urlencode($enderecoCompleto);
+
+// Monta URL da API Nominatim
+$url = "https://nominatim.openstreetmap.org/search?format=json&q={$enderecoURL}&limit=1";
+
+// Cabeçalho obrigatório (User-Agent)
+$opts = [
+    "http" => [
+        "header" => "User-Agent: MeuSistemaGeolocalizacao/1.0\r\n"
+    ]
+];
+
+$context = stream_context_create($opts);
+
+// Obter resultado
+$resposta = @file_get_contents($url, false, $context);
+$data = json_decode($resposta, true);
+
+// Valores padrão caso falhe
+$lat = null;
+$lng = null;
+
+// Se encontrou resultado
+if (!empty($data)) {
+    $lat = $data[0]["lat"];
+    $lng = $data[0]["lon"];
+}
+
+// Agora faz **um único INSERT** com TODOS os dados
+$sql = "INSERT INTO usuarios 
+(Nome_completo, Usuario, Email, CEP, Estado, Cidade, Endereco, Numero, Senha, Latitude, Longitude) 
+VALUES 
+('{$nome_completo}', '{$user}', '{$email}', '{$cep}', '{$estado}', '{$cidade}', '{$endereco}', '{$numero}', '{$senha}', '{$lat}', '{$lng}')";
+
+// executar no banco
 mysqli_query($conexao, $sql);
 
-// redireciona 
+// redireciona
 header('Location: ../cadastro.php');
 exit();
+
 ?>

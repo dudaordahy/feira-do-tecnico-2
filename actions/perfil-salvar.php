@@ -10,14 +10,12 @@ move_uploaded_file($_FILES["fotoPerfil"]["tmp_name"], $target_file);
 
 // capturar a distancia
 $distancia = $_POST['raioDistancia'];
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
 
 // dados do usuario
 $UsuarioID = $_SESSION['Usuario']['UsuarioID'];
 
 // atualizar dados do usuario no banco
-$sql = "UPDATE usuarios SET Longitude = '$longitude', Latitude = '$latitude', Distancia = '$distancia', Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
+$sql = "UPDATE usuarios SET Distancia = '$distancia', Imagem = '$target_file' WHERE UsuarioID = " . $_SESSION['Usuario']['UsuarioID'];
 mysqli_query($conexao, $sql);
 
 // pega as preferencias

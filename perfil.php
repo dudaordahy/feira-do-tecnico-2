@@ -21,8 +21,6 @@ while ($dados = mysqli_fetch_assoc($resultado)) {
 ?>
 <h1>Escolha a distancia</h1>
 <input type="range" name="raioDistancia" id="">
-<input type="hidden" name="longitude" value="-23.000">
-<input type="hidden" name="latitude" value="23.000">
 <button type="submit">Enviar</button>
 </form>
 <?php

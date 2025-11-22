@@ -1,15 +1,27 @@
-body{
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
 }
 
 .container_escolhas{
-    background-color: aqua;
-    width: 850px;
+    width: 900px;
     height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+    background:#3bdac2;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,19 +33,24 @@ form{
     align-items: center;
 }
 
-
 #fileInput {
     display: none;
 }
 
 .btn {
     padding: 10px 20px;
-    background: #4CAF50;
-    color: #fff;
+    background: #268f7f;
+    color: #ffffff;
     border-radius: 10px;
     cursor: pointer;
     display: inline-block;
     margin: 10px;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #268f7f;
 }
 
 /* Preview redondo */
@@ -44,4 +61,87 @@ form{
     object-fit: cover; /* mantém proporção sem esticar */
     margin: 10px;
     border: 2px solid #ccc;
+}
+
+#proximo{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+#proximo img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.nav_bar_inline{
+    background-color: transparent;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cidade{
+    background-color: #268f7f;
+    border-radius: 16px;
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    left: 20px;
+    display: inline-block;
+}
+
+#txt_cidade{
+    font-size: 25px;
+}
+
+#perfil{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    display: inline-block;
+    background-color: #268f7f;
+    cursor: pointer;
+}
+
+.nav_bar_coluna{
+    background-color: transparent;
+    position: absolute;
+    z-index: 3;
+    display: inline;
+    width: 60px;
+    height: 550px;
+    right: 0;
+    bottom: 0;
+}
+
+#direct{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    background-color: #268f7f;
+    cursor: pointer;
+}
+
+#config{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #268f7f;
+    cursor: pointer;
 }

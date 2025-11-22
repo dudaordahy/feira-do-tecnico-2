@@ -95,7 +95,7 @@ body {
     border-radius: 16px;
     width: 200px;
     text-align: center;
-    position: inherit;
+    position: absolute;
     left: 20px;
     display: inline-block;
 }
@@ -108,7 +108,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: inherit;
+    position: absolute;
     right: 10px;
     display: inline-block;
     background-color: #268f7f;
@@ -130,7 +130,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: inherit;
+    position: absolute;
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;
@@ -140,7 +140,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    position: inherit;
+    position: absolute;
     bottom: 10px;
     right: 10px;
     background-color: #268f7f;

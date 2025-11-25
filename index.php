@@ -16,20 +16,7 @@ include_once './includes/header.php';
 <div class="nav_bar_inline">
     <div id="cidade">
         <?php
-        $UsuarioID = $_SESSION['Usuario']['UsuarioID'];
-
-        // Query correta
-        $sql = "SELECT Cidade FROM usuarios WHERE UsuarioID = $UsuarioID";
-
-        // Executa
-        $result = mysqli_query($conexao, $sql);
-
-        // Pega a linha
-        $row = mysqli_fetch_assoc($result);
-
-        // Pega o valor da cidade
-        $cidade = $row['Cidade'];
-
+        $cidade = $_SESSION['Usuario']['Cidade'];
         // Exibe
         echo "<h1 id='txt_cidade'>$cidade</h1>";
         ?>

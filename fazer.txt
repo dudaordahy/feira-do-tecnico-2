@@ -1,0 +1,13 @@
+-- Separar perfil-salvar
+
+-- Criar um novo form para as preferencias(javascript)
+
+-- Criar um novo form para a distância(javascript)
+
+-- Desenvolver os card dos usuários aparecidos
+
+-- 
+
+
+
+https://uploadcare.com/blog/how-to-upload-files-using-js/

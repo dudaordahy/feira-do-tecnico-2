@@ -3,12 +3,14 @@ let input = document.getElementById("fileInput");
 
     input.addEventListener("change", function() {
         let file = this.files[0];
+
         if (file) {
             let reader = new FileReader();
             reader.onload = function(e) {
                 preview.innerHTML = "<img src='" + e.target.result + "'>";
             }
             reader.readAsDataURL(file);
+            // upload
         }
     });
 
@@ -16,7 +18,11 @@ let proximo = document.getElementById("proximo");
 let form = document.getElementById("form_foto");
 
 proximo.addEventListener("click", function(){
+    //form.submit();
     form.remove();
+
+
+
 })
 
 // url que pega as preferencias do banco e tem json 

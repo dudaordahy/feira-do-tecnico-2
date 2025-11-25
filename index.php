@@ -4,8 +4,8 @@ include_once './includes/logado.php';
 include_once './includes/header.php';
 ?>
 <div class="container_escolhas">
-    <form action="./actions/perfil-salvar.php" method="post" enctype="multipart/form-data">
-        <h1>Escolha sua foto de perfil</h1>
+    <form id="form_foto" action="./actions/foto-salva.php" method="post" enctype="multipart/form-data">
+        <h1 id="txt_foto">Escolha sua foto de perfil</h1>
         <span class="btn" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
         <input type="file" name="fotoPerfil" id="fileInput">
         <div id="preview"></div>
@@ -47,9 +47,8 @@ include_once './includes/header.php';
         <a href="#"><img src="#" alt=""></a>
     </div>
 </div>
-<!-- <ul id="listaPreferencias"></ul> -->
 
-
+    <!-- <ul id="listaPreferencias"></ul> -->
 <?php
 include_once './includes/footer.php';
 ?>

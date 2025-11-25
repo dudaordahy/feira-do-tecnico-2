@@ -12,6 +12,13 @@ let input = document.getElementById("fileInput");
         }
     });
 
+let proximo = document.getElementById("proximo");
+let form = document.getElementById("form_foto");
+
+proximo.addEventListener("click", function(){
+    form.remove();
+})
+
 // url que pega as preferencias do banco e tem json 
 const url = './actions/preferencia-lista.php'; 
 // 

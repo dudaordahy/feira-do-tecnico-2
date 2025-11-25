@@ -21,5 +21,5 @@ while ($dados = mysqli_fetch_assoc($resultado)) {
 header('Content-Type: application/json');
 
 // cria o json
-exit( json_encode($colecao));
+exit(sjson_encode($colecao));
 ?>

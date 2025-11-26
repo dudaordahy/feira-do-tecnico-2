@@ -20,7 +20,7 @@ mysqli_query($conexao, $sql);
 
 // pega as preferencias
 $preferencias = $_POST['preferencia'];
-if(  count($preferencias) == 10 ){
+if(count($preferencias) == 10 ){
 
     $sql2 = "DELETE FROM usuarios_preferencias WHERE UsuarioID = $UsuarioID;";
     mysqli_query($conexao, $sql2);

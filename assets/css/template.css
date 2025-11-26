@@ -100,7 +100,7 @@ form{
 }
 
 #txt_cidade{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #perfil{
@@ -130,6 +130,7 @@ form{
     height: 40px;
     border-radius: 50%;
     position: absolute;
+    top: 0;
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;

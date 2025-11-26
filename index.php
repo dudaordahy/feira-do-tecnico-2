@@ -3,7 +3,7 @@ include_once './includes/conexao.php';
 include_once './includes/logado.php';
 include_once './includes/header.php';
 ?>
-<div class="container_escolhas">
+<div class="container_escolhas" id="container">
     <form id="form_foto" action="./actions/foto-salva.php" method="post" enctype="multipart/form-data">
         <h1 id="txt_foto">Escolha sua foto de perfil</h1>
         <span class="btn" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
@@ -17,7 +17,6 @@ include_once './includes/header.php';
     <div id="cidade">
         <?php
         $cidade = $_SESSION['Usuario']['Cidade'];
-        // Exibe
         echo "<h1 id='txt_cidade'>$cidade</h1>";
         ?>
     </div>
@@ -35,7 +34,6 @@ include_once './includes/header.php';
     </div>
 </div>
 
-    <!-- <ul id="listaPreferencias"></ul> -->
 <?php
 include_once './includes/footer.php';
 ?>

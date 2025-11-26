@@ -13,16 +13,16 @@ VALUES
 
 INSERT INTO usuarios (Nome_completo, Usuario, Email, Senha, CEP, Endereco, Numero, Imagem, Cidade, Estado, Distancia, Latitude, Longitude)
 VALUES
-('Mariana Figueiredo', 'mari_fig', 'mariana.fg@example.com', '12345678', 90050170, 'Av. Borges de Medeiros', 1501, 'mari.jpg', 'Porto Alegre', 'RS', 0, -30.0331, -51.2307),
-('Lucas Andrade', 'lucas_a', 'lucas.andrade@example.com', 'senha123', 91330000, 'Av. Assis Brasil', 4200, 'lucas.jpg', 'Porto Alegre', 'RS', 0, -30.0115, -51.1579),
-('Fernanda Silveira', 'fer_s', 'fernanda.silv@example.com', 'abc12345', 90420060, 'Rua Félix da Cunha', 780, 'fer.jpg', 'Porto Alegre', 'RS', 0, -30.0258, -51.2075),
-('Rafael Moreira', 'rafa_m', 'rafa.moreira@example.com', 'pass2024', 90619900, 'Av. Ipiranga', 6681, 'rafa.jpg', 'Porto Alegre', 'RS', 0, -30.0586, -51.1747),
-('Júlia Carvalho', 'ju_carv', 'julia.carvalho@example.com', 'julia2024', 91530000, 'Rua Ernesto da Fontoura', 235, 'julia.jpg', 'Porto Alegre', 'RS', 0, -30.0239, -51.1650),
-('Thiago Pacheco', 'thi_pach', 'thiago.pacheco@example.com', 'tk2024pass', 91740110, 'Rua Eduardo Prado', 55, 'thiago.jpg', 'Porto Alegre', 'RS', 0, -30.1311, -51.2102),
-('Carolina Nunes', 'carol_n', 'carol.nunes@example.com', 'carol123', 90130000, 'Av. Goethe', 200, 'carol.jpg', 'Porto Alegre', 'RS', 0, -30.0280, -51.2027),
-('Diego Almeida', 'dieg_alm', 'diego.almeida@example.com', 'abcd7890', 91220000, 'Rua Dr. Timóteo', 101, 'diego.jpg', 'Porto Alegre', 'RS', 0, -30.0087, -51.1972),
-('Beatriz Ramos', 'bia_r', 'beatriz.ramos@example.com', 'bia2024ok', 90010160, 'Rua Voluntários da Pátria', 950, 'bia.jpg', 'Porto Alegre', 'RS', 0, -30.0164, -51.2105),
-('Henrique Duarte', 'h_duarte', 'henrique.duarte@example.com', 'hdk12345', 90520000, 'Av. Cristóvão Colombo', 3000, 'henrique.jpg', 'Porto Alegre', 'RS', 0, -30.0219, -51.2098),
+('André Silveira', 'and_silv', 'andre.silv@example.com', 'as2024', 90020200, 'Rua Bento Martins', 745, 'andres.jpg', 'Porto Alegre', 'RS', 0, -30.0272, -51.2251),
+('Larissa Antunes', 'lari_ant', 'larissa.antunes@example.com', 'la123456', 90450110, 'Rua Barão do Amazonas', 220, 'lari.jpg', 'Porto Alegre', 'RS', 0, -30.0285, -51.1977),
+('Miguel Freitas', 'mig_frei', 'miguel.freitas@example.com', 'mf9090', 90530220, 'Av. Benjamin Constant', 1800, 'miguel.jpg', 'Porto Alegre', 'RS', 0, -30.0159, -51.2120),
+('Sofia Cardoso', 'sof_card', 'sofia.cardoso@example.com', 'sc5555', 91370050, 'Rua Ary Tarragô', 365, 'sofia.jpg', 'Porto Alegre', 'RS', 0, -30.0108, -51.1180),
+('Eduardo Ramos', 'edu_r', 'eduardo.r@example.com', 'er8080', 91750010, 'Av. Juca Batista', 7010, 'eduramos.jpg', 'Porto Alegre', 'RS', 0, -30.1500, -51.1855),
+('Vitória Silva', 'vit_sil', 'vitoria.sil@example.com', 'vs1212', 90480220, 'Rua General Couto de Magalhães', 110, 'vitoria.jpg', 'Porto Alegre', 'RS', 0, -30.0331, -51.1931),
+('Leonardo Barreto', 'leo_bar', 'leonardo.barreto@example.com', 'lb4444', 91020400, 'Av. Sertório', 6400, 'leonardo.jpg', 'Porto Alegre', 'RS', 0, -30.0010, -51.1590),
+('Camila Figueira', 'cam_fig', 'camila.figueira@example.com', 'cf6767', 90040220, 'Rua Vigário José Inácio', 520, 'camilaf.jpg', 'Porto Alegre', 'RS', 0, -30.0269, -51.2250),
+('Renan Duarte', 'ren_duar', 'renan.duarte@example.com', 'rd3333', 91410200, 'Rua Pedro Chaves Barcelos', 370, 'renan.jpg', 'Porto Alegre', 'RS', 0, -30.0262, -51.1733),
+('Helena Dias', 'hel_dias', 'helena.dias@example.com', 'hd2024', 90510450, 'Rua Santo Antônio', 540, 'helenad.jpg', 'Porto Alegre', 'RS', 0, -30.0295, -51.2101)
 
 ('Patrícia Gomes', 'pat_g', 'patricia.gomes@example.com', 'pg123456', 90480170, 'Rua Anita Garibaldi', 145, 'pat.jpg', 'Porto Alegre', 'RS', 0, -30.0335, -51.1904),
 ('Gustavo Silva', 'gus_silva', 'gustavo.silva@example.com', 'gs2024xx', 91720000, 'Av. Cavalhada', 2990, 'gus.jpg', 'Porto Alegre', 'RS', 0, -30.1380, -51.2095),

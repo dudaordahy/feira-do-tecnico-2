@@ -64,15 +64,10 @@ body {
     height: 100px;
     background-color: #4caf50;
     border-radius: 50%;
-    margin-top: 20px;
     transition: 0.2s ease;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
     opacity: 0.5;
     border: solid 2px #19331a;
 }
-
 
 .nav_bar_inline{
     background-color: transparent;

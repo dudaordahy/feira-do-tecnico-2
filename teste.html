@@ -8,12 +8,12 @@
 </head>
 <body>
         <div class="container_escolhas">
-            <h1>Escolha foto de perfil</h1>
-            <span class="btn" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
-            <input type="file" name="fotoPerfil" id="fileInput">
-            <div id="preview"></div>
+            <h1 id="txt_escolha">Escolha a distância</h1>
+            <input type="range" id="range" min="100" max="500" value="100">
             <button id="proximo" type="submit"><img src="./assets/img/proximo.png" alt=""></button>
         </div>
+
+        <div id="circle"></div>
 
         <div class="nav_bar_inline">
             <div id="cidade">
@@ -35,46 +35,6 @@
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-    // Coordenadas personalizadas
-    var latitude = -30.068141925489904;
-    var longitude = -51.20064951657418;
-
-    // Inicializa o mapa
-    var map = L.map('map').setView([latitude, longitude], 15);
-
-    // Camada de mapa
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 20
-    }).addTo(map);
-
-    // Marcador
-    var iconeAzul = L.icon({
-        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-        iconSize: [25, 40],
-        iconAnchor: [12, 40],
-        popupAnchor: [1, -35],
-        shadowSize: [40, 40]
-    });
-
-    L.marker([latitude, longitude], { icon: iconeAzul }).addTo(map)
-    .bindPopup('Local personalizado!');
-
-    let input = document.getElementById("fileInput");
-    let preview = document.getElementById("preview");
-
-    input.addEventListener("change", function() {
-        let file = this.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                preview.innerHTML = "<img src='" + e.target.result + "'>";
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-
+<script src="teste.js"></script>
 </body>
 </html>

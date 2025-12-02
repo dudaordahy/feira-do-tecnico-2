@@ -11,6 +11,12 @@ body {
     color: #ffffff;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #map{
     height: 100%;
     width: 100%;
@@ -33,12 +39,16 @@ body {
     align-items: center;
 }
 
-#txt_escolha{
+#range{
+    width: 150px;
+}
+
+.txt_escolha{
     display: inline-block;
     margin: 10px;
 }
 
-#proximo{
+#btn3{
     width: 30px;
     height: 30px;
     background-color: transparent;
@@ -51,12 +61,13 @@ body {
     align-items: center;
 }
 
-#proximo img{
+#btn3 img{
     width: 30px;
     height: 30px;
     border-radius: 15px;
 }
 
+<<<<<<< Updated upstream
 #circle {
     position: absolute;
     z-index: 5;
@@ -69,6 +80,8 @@ body {
     border: solid 2px #19331a;
 }
 
+=======
+>>>>>>> Stashed changes
 .nav_bar_inline{
     background-color: transparent;
     position: absolute;

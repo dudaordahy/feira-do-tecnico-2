@@ -28,16 +28,27 @@ body {
 }
 
 form{
+
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#map{
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.txt_escolhas{
+    margin: 10px;
 }
 
 #fileInput {
     display: none;
 }
 
-.btn {
+.escolher_img{
     padding: 10px 20px;
     background: #268f7f;
     color: #ffffff;
@@ -48,7 +59,7 @@ form{
     transition: 0.5s;
 }
 
-.btn:hover{
+.escolher_img:hover{
     background-color: #fff;
     color: #268f7f;
 }
@@ -63,20 +74,63 @@ form{
     border: 2px solid #ccc;
 }
 
-#proximo{
+#btn1{
     width: 30px;
     height: 30px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#proximo img{
+#btn1 img{
     width: 30px;
     height: 30px;
     border-radius: 15px;
 }
+
+#btn2{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn2 img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+#btn3{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn3 img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
 
 .nav_bar_inline{
     background-color: transparent;

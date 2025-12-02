@@ -1,5 +1,6 @@
 let input = document.getElementById("fileInput");
 let preview = document.getElementById("preview");
+let container = document.getElementById("container");
 
 input.addEventListener("change", function() {
     let file = this.files[0];
@@ -9,90 +10,109 @@ input.addEventListener("change", function() {
             preview.innerHTML = "<img src='" + e.target.result + "'>";
         }
         reader.readAsDataURL(file);
-        uploadFiles();
     }
 });
 
-function uploadFiles() {
-  // URL do arquivo PHP que vai receber a foto
-  const url = 'actions/foto-salva.php';
+let fomr1 = document.getElementById("form1");
+let form2 = document.getElementById("form2");
+let form3 = document.getElementById("form3");
 
-  // Obtém o formulário que contém o input de arquivo
-  const form = document.getElementById("form_foto");
+document.getElementById("btn1").addEventListener("click", (e) => {
+    e.preventDefault();
 
-  // Cria um FormData para enviar arquivos + campos
-  const formData = new FormData(form);
+    const dados = new FormData(form1);
 
-  // Envia usando fetch
-  fetch(url, {
-    method: 'POST',
-    body: formData
-  });
-}
+    fetch("./actions/foto-salva.php", {
+        method: "POST",
+        body: dados
+    })
+    .then(() => {
+        form1.style.display = "none";
+        form2.style.display = "flex ";
 
-let proximo = document.getElementById("proximo");
-let form_foto = document.getElementById("form_foto");
-let container = document.getElementById("container");
+        carregarPreferencias();
+    });
+});
 
+function carregarPreferencias() {
+    const listaPai = document.querySelector("#listaPreferencias");
+    listaPai.innerHTML = ""; // limpa lista caso usuário volte
 
-proximo.addEventListener("click", function(){
-    form_foto.remove();
-
-    const form_pref = document.createElement("form");
-    form_pref.action = "actions/pref-salva.php";
-    form_pref.method = "POST";
-    container.appendChild(form_pref)
-
-    const txt_pref = document.createElement("h1");
-    txt_pref.innerHTML = "Escolha suas preferências";
-    form_pref.appendChild(txt_pref);
-
-    const ul_pref = document.createElement("ul");
-    ul_pref.id = "listaPreferencias";
-    form_pref.appendChild(ul_pref);
-
-    // URL que retorna as preferências em JSON
-    const url = './actions/preferencia-lista.php';
-
-    // Requisição para buscar as preferências no banco
-    fetch(url)
-        .then(response => response.json())  // Converte o retorno para JSON
+    fetch('./actions/preferencia-lista.php')
+        .then(response => response.json())
         .then(data => {
-
-            // Seleciona o <ul> criado acima
-            const listaPai = document.querySelector("#listaPreferencias");
-
-            // Percorre cada preferência retornada do servidor
-            data.forEach(element => {
-
-                // Cria uma <li> para cada preferência
-                const novoItem = document.createElement('li');
-
-                // Adiciona checkbox + texto dentro da <li>
-                novoItem.innerHTML = `
+            data.forEach(pref => {
+                const li = document.createElement('li');
+                li.innerHTML = `
                     <label>
-                        <input type="checkbox" value="${element.PreferenciaID}" name="preferencia[]">
-                        ${element.Nome}
+                        <input type="checkbox" name="preferencia[]" value="${pref.PreferenciaID}">
+                        ${pref.Nome}
                     </label>
                 `;
-
-                // Adiciona a <li> pronta dentro da <ul>
-                listaPai.appendChild(novoItem);
+                listaPai.appendChild(li);
             });
-        })
-
-        // Caso algo dê errado ao buscar o JSON
-        .catch(error => {
-            console.error('Error fetching or parsing JSON:', error);
         });
+}
 
-    const btn_proximo = document.createElement("button");
-    btn_proximo.id = "proximo";
-    btn_proximo.type = "submit";
-    form_pref.appendChild(btn_proximo);
+document.getElementById("btn2").addEventListener("click", (e) => {
+    e.preventDefault();
 
-    const img_proximo = document.createElement("img");
-    img_proximo.src = "assets/img/proximo.png";
-    btn_proximo.appendChild(img_proximo);
+    const dados = new FormData(form2);
 
+    fetch("./actions/pref-salva.php", {
+        method: "POST",
+        body: dados
+    })
+    .then(() => {
+        form2.style.display = "none";
+        form3.style.display = "flex";
+        container.style.height = "auto";
+        container.style.top = "20%";
+        container.style.left = "30%";
+        container.style.translate = "-20% -30%";
+    });
 });
+
+document.getElementById("btn3").addEventListener("click", (e) => {
+    e.preventDefault(); // impede reload
+    alert("Fluxo completo!");
+});
+
+// Coordenadas personalizadas
+var latitude = -30.068141925489904;
+var longitude = -51.20064951657418;
+
+// Inicializa o mapa
+var map = L.map('map').setView([latitude, longitude], 15);
+
+// Camada de mapa
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 20
+}).addTo(map);
+
+var circle = L.circle([-30.068141925489904, -51.20064951657418], {
+color: 'green',
+fillColor: 'rgba(53, 107, 60, 1)',
+fillOpacity: 0.5,
+radius: 500
+}).addTo(map);
+
+const slider = document.getElementById("range");
+
+slider.addEventListener("input", () => {
+    const size = Number(slider.value); 
+    circle.setRadius(size);  // atualiza o raio em metros
+});
+
+// Marcador
+var iconeAzul = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 40],
+    iconAnchor: [12, 40],
+    popupAnchor: [1, -35],
+    shadowSize: [40, 40]
+});
+
+L.marker([latitude, longitude], { icon: iconeAzul }).addTo(map)
+.bindPopup('Local personalizado!');

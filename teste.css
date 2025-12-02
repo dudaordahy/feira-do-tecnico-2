@@ -67,7 +67,6 @@ form{
     border-radius: 15px;
 }
 
-<<<<<<< Updated upstream
 #circle {
     position: absolute;
     z-index: 5;
@@ -80,8 +79,6 @@ form{
     border: solid 2px #19331a;
 }
 
-=======
->>>>>>> Stashed changes
 .nav_bar_inline{
     background-color: transparent;
     position: absolute;

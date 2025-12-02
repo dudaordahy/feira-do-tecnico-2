@@ -18,7 +18,7 @@ body {
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    z-index: 2;
+    z-index: 10;
     background:#3bdac2;
     border-radius: 16px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
@@ -135,22 +135,20 @@ form{
 .nav_bar_inline{
     background-color: transparent;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-#cidade{
+.cidade{
     background-color: #268f7f;
     border-radius: 16px;
     width: 200px;
     text-align: center;
     position: absolute;
     left: 20px;
-    display: inline-block;
 }
 
 #txt_cidade{
@@ -162,18 +160,28 @@ form{
     height: 40px;
     border-radius: 50%;
     position: absolute;
+    top: 5px;
     right: 10px;
-    display: inline-block;
     background-color: #268f7f;
     cursor: pointer;
+}
+
+#perfil img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
 }
 
 .nav_bar_coluna{
     background-color: transparent;
     position: absolute;
-    z-index: 3;
+    z-index: 10;
     display: inline;
-    width: 60px;
+    width: 70px;
     height: 550px;
     right: 0;
     bottom: 0;
@@ -188,6 +196,14 @@ form{
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#direct img{
+    width: 30px;
+    height: 30px;
 }
 
 #config{
@@ -199,4 +215,13 @@ form{
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#config img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }

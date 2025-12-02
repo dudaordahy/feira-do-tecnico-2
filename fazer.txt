@@ -1,9 +1,9 @@
--- Separar perfil-salvar
-
--- Criar um novo form para a distância(javascript)
-
 -- Desenvolver os card dos usuários aparecidos
 
--- 
+-- Fazer uma contagem de ate 10 preferencias
+
+-- Fazer o ponto com a lat e long do user
+
+--
 
 https://uploadcare.com/blog/how-to-upload-files-using-js/

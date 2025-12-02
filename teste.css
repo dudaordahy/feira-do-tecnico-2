@@ -67,18 +67,6 @@ form{
     border-radius: 15px;
 }
 
-#circle {
-    position: absolute;
-    z-index: 5;
-    width: 100px;
-    height: 100px;
-    background-color: #4caf50;
-    border-radius: 50%;
-    transition: 0.2s ease;
-    opacity: 0.5;
-    border: solid 2px #19331a;
-}
-
 .nav_bar_inline{
     background-color: transparent;
     position: absolute;

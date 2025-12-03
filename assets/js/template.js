@@ -1,6 +1,3 @@
-let circle = null;
-
-// Coordenadas personalizadas
 fetch('./actions/pegarLatLong.php')
     .then(response => response.json())
     .then(data => {
@@ -44,6 +41,7 @@ input.addEventListener("change", function() {
     }
 });
 
+let circle = null;
 let img_pefil = document.getElementById("img_perfil");
 let fomr1 = document.getElementById("form1");
 let form2 = document.getElementById("form2");
@@ -94,7 +92,6 @@ function criarCirculo() {
             var latitude = parseFloat(data.latitude);
             var longitude = parseFloat(data.longitude);
 
-            // cria o círculo corretamente
             circle = L.circle([latitude, longitude], {
                 color: 'green',
                 fillColor: 'rgba(53, 107, 60, 1)',

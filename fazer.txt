@@ -6,4 +6,10 @@
 
 -- Achar uma API mais precisa na captura de LAT e LONG
 
+-- Implementar o ranking
+
+-- Implementar a página de configurações 
+
+-- Implementar a página de perfil
+
 https://uploadcare.com/blog/how-to-upload-files-using-js/

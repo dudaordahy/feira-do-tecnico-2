@@ -1,29 +1,33 @@
 let circle = null;
 
 // Coordenadas personalizadas
-var latitude = -30.068141925489904;
-var longitude = -51.20064951657418;
+fetch('./actions/pegarLatLong.php')
+    .then(response => response.json())
+    .then(data => {
+        var latitude = parseFloat(data.latitude);
+        var longitude = parseFloat(data.longitude);
 
-// Inicializa o mapa
-var map = L.map('map').setView([latitude, longitude], 15);
+        // Inicializa o mapa
+        window.map = L.map('map').setView([latitude, longitude], 15);
 
-// Camada de mapa
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 20
-}).addTo(map);
+        // Camada de mapa
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 20
+        }).addTo(map);
 
-// Marcador
-var iconeAzul = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    iconSize: [25, 40],
-    iconAnchor: [12, 40],
-    popupAnchor: [1, -35],
-    shadowSize: [40, 40]
+        // Marcador
+        var iconeAzul = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+            iconSize: [25, 40],
+            iconAnchor: [12, 40],
+            popupAnchor: [1, -35],
+            shadowSize: [40, 40]
+        });
+
+        L.marker([latitude, longitude], { icon: iconeAzul }).addTo(map)
+        .bindPopup('Local personalizado!');
 });
-
-L.marker([latitude, longitude], { icon: iconeAzul }).addTo(map)
-.bindPopup('Local personalizado!');
 
 let input = document.getElementById("fileInput");
 let preview = document.getElementById("preview");
@@ -40,6 +44,7 @@ input.addEventListener("change", function() {
     }
 });
 
+let img_pefil = document.getElementById("img_perfil");
 let fomr1 = document.getElementById("form1");
 let form2 = document.getElementById("form2");
 let form3 = document.getElementById("form3");
@@ -57,9 +62,9 @@ document.getElementById("btn1").addEventListener("click", (e) => {
         form1.style.display = "none";
         form2.style.display = "flex";
 
-        carregarPreferencias();
+        carregarPreferencias()
     });
-});
+})
 
 function carregarPreferencias() {
     const listaPai = document.querySelector("#listaPreferencias");
@@ -81,13 +86,22 @@ function carregarPreferencias() {
         });
 }
 
-function criarCirculo(){
-    circle = L.circle([-30.068141925489904, -51.20064951657418], {
-    color: 'green',
-    fillColor: 'rgba(53, 107, 60, 1)',
-    fillOpacity: 0.5,
-    radius: 500
-    }).addTo(map);
+function criarCirculo() {
+    fetch('./actions/pegarLatLong.php')
+        .then(response => response.json())
+        .then(data => {
+
+            var latitude = parseFloat(data.latitude);
+            var longitude = parseFloat(data.longitude);
+
+            // cria o círculo corretamente
+            circle = L.circle([latitude, longitude], {
+                color: 'green',
+                fillColor: 'rgba(53, 107, 60, 1)',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(map);
+        });
 
     const slider = document.getElementById("range");
 

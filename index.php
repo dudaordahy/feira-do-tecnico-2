@@ -35,7 +35,7 @@ include_once './includes/header.php';
         ?>
     </div>
     <div class="perfil">
-        <a href="#" id="perfil"><img src="./assets/img/user.png" alt=""></a>
+        <a href="#" id="perfil"><img id="img_perfil" src="./assets/img/user.png" alt=""></a>
     </div>
 </div>
 

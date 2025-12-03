@@ -9,5 +9,4 @@ $dbname = "connect";
 
 // conexao
 $conexao = mysqli_connect($servername, $username, $password, $dbname);
-
 ?>

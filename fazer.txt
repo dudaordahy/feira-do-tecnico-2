@@ -2,8 +2,8 @@
 
 -- Fazer uma contagem de ate 10 preferencias
 
--- Fazer o ponto com a lat e long do user
+-- Fazer a foto de perfil do usuário ir para o botao de perfil
 
---
+-- Achar uma API mais precisa na captura de LAT e LONG
 
 https://uploadcare.com/blog/how-to-upload-files-using-js/

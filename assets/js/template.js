@@ -4,15 +4,12 @@ fetch('./actions/pegarLatLong.php')
         var latitude = parseFloat(data.latitude);
         var longitude = parseFloat(data.longitude);
 
-        // Inicializa o mapa
         window.map = L.map('map').setView([latitude, longitude], 15);
 
-        // Camada de mapa
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 20
         }).addTo(map);
 
-        // Marcador
         var iconeAzul = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',

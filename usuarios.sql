@@ -199,7 +199,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (3, 8, 6),
 (3, 1, 7),
 (3, 13, 8),
-(3, 9, 9);
+(3, 9, 9),
 
 -- Usuário 4
 (4, 15, 0),
@@ -319,7 +319,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (13, 9, 6),
 (13, 6, 7),
 (13, 14, 8),
-(13, 11, 9);
+(13, 11, 9),
 
 -- Usuário 14
 (14, 12, 0),
@@ -439,7 +439,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (23, 10, 6),
 (23, 6, 7),
 (23, 14, 8),
-(23, 11, 9);
+(23, 11, 9),
 
 -- Usuário 24
 (24, 13, 0),
@@ -559,7 +559,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (33, 15, 6),
 (33, 7, 7),
 (33, 13, 8),
-(33, 6, 9);
+(33, 6, 9),
 
 -- Usuário 34
 (34, 1, 0),
@@ -679,7 +679,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (43, 7, 6),
 (43, 3, 7),
 (43, 11, 8),
-(43, 15, 9);
+(43, 15, 9),
 
 -- Usuário 44
 (44, 4, 0),
@@ -799,7 +799,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (53, 8, 6),
 (53, 1, 7),
 (53, 14, 8),
-(53, 11, 9);
+(53, 11, 9),
 
 -- Usuário 54
 (54, 3, 0),
@@ -919,7 +919,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (63, 5, 6),
 (63, 11, 7),
 (63, 10, 8),
-(63, 15, 9);
+(63, 15, 9),
 
 -- Usuário 64
 (64, 3, 0),
@@ -1039,7 +1039,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (73, 7, 6),
 (73, 2, 7),
 (73, 11, 8),
-(73, 10, 9);
+(73, 10, 9),/
 
 -- Usuário 74
 (74, 2, 0),
@@ -1159,7 +1159,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (83, 4, 6),
 (83, 6, 7),
 (83, 15, 8),
-(83, 9, 9);
+(83, 9, 9),
 
 -- Usuário 84
 (84, 5, 0),
@@ -1279,7 +1279,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (93, 10, 6),
 (93, 5, 7),
 (93, 8, 8),
-(93, 15, 9);
+(93, 15, 9),
 
 INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 -- Usuário 94
@@ -1364,7 +1364,7 @@ INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES
 (100, 7, 6),
 (100, 5, 7),
 (100, 8, 8),
-(100, 15, 9),
+(100, 15, 9);
 
 -- Usuário 101
 (101, 3, 0),

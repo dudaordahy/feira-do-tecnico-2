@@ -11,7 +11,24 @@ body {
     color: #ffffff;
 }
 
+.container_escolhas{
+    width: 900px;
+    height: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 10;
+    background:#3bdac2;
+    border-radius: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 form{
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,29 +40,76 @@ form{
     z-index: 0;
 }
 
-.container_escolhas{
-    width: 900px;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    translate: -20% -30%;
-    z-index: 10;
-    background:#3bdac2;
-    border-radius: 16px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+.txt_escolhas{
+    margin: 10px;
+}
+
+#fileInput {
+    display: none;
+}
+
+.escolher_img{
+    padding: 10px 20px;
+    background: #268f7f;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    transition: 0.5s;
+}
+
+.escolher_img:hover{
+    background-color: #fff;
+    color: #268f7f;
+}
+
+/* Preview redondo */
+#preview img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /* mantém proporção sem esticar */
+    margin: 10px;
+    border: 2px solid #ccc;
+}
+
+#btn1{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 10px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#range{
-    width: 150px;
+#btn1 img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
 }
 
-.txt_escolha{
-    display: inline-block;
+#btn2{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
     margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn2 img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
 }
 
 #btn3{
@@ -67,29 +131,28 @@ form{
     border-radius: 15px;
 }
 
+
 .nav_bar_inline{
     background-color: transparent;
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     width: 100%;
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-#cidade{
+.cidade{
     background-color: #268f7f;
     border-radius: 16px;
     width: 200px;
     text-align: center;
     position: absolute;
     left: 20px;
-    display: inline-block;
 }
 
 #txt_cidade{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #perfil{
@@ -97,16 +160,26 @@ form{
     height: 40px;
     border-radius: 50%;
     position: absolute;
+    top: 5px;
     right: 10px;
-    display: inline-block;
     background-color: #268f7f;
     cursor: pointer;
+}
+
+#perfil img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
 }
 
 .nav_bar_coluna{
     background-color: transparent;
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     display: inline;
     width: 60px;
     height: 550px;
@@ -119,9 +192,18 @@ form{
     height: 40px;
     border-radius: 50%;
     position: absolute;
+    top: 10px;
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#direct img{
+    width: 30px;
+    height: 30px;
 }
 
 #config{
@@ -133,4 +215,90 @@ form{
     right: 10px;
     background-color: #268f7f;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#config img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.card{
+    background-color: #268f7f;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    border-radius: 16px;
+}
+
+.card img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+#user{
+    font-size: 20px;
+    width: 150px;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+}
+
+#preferencias{
+    font-size: 20px;
+    width: 150px;
+    height: auto;
+    margin: 10px;
+    text-align: center;
+}
+
+#button{
+    display: inline;
+    width: auto;
+    height: auto;
+    padding: 10px;
+}
+
+#match{
+    width: 100px;
+    height: 40px;
+    border-radius: 16px;
+    border: none;
+    background-color: green;
+    cursor: pointer;
+}
+
+#match img{
+    width: 50px;
+    height: 30px;
+    object-fit: contain;
+    margin: 0;
+}
+
+#recusar{
+    width: 100px;
+    height: 40px;
+    border-radius: 16px;
+    border: none;
+    background-color: red;
+    cursor: pointer;
+}
+
+#recusar img{
+    width: 50px;
+    height: 30px;
+    object-fit: contain;
+    margin: 0;
 }

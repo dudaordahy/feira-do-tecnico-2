@@ -8,7 +8,8 @@ $sesUsuario = $_SESSION['Usuario'];
 // criar o sql que captura as preferencias 
 $sql = "SELECT 
             u.UsuarioID,
-            u.Nome_completo,
+            u.Usuario,
+            u.Imagem,
             u.Latitude,
             u.Longitude,
             u.Endereco,
@@ -44,7 +45,7 @@ $sql = "SELECT
 
         HAVING 
             DistanciaUsuarioComPessoas <= ".$sesUsuario['Distancia']."
-            AND u.Distancia <= DistanciaUsuarioComPessoas
+            AND DistanciaUsuarioComPessoas <= u.Distancia
 
         ORDER BY 
             DistanciaUsuarioComPessoas ASC,

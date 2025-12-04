@@ -9,13 +9,16 @@
 </head>
 <body>
 </div>
-    <div class="container_escolhas">
-        <form id="form3" style="display: flex;">
-            <h1 class="txt_escolha">Escolha a distância</h1>
-            <input type="range" id="range" min="200" max="10000" value="200">
-            <button id="btn3" type="submit"><img src="./assets/img/proximo.png" alt=""></button>
-        </form>
+<div class="card" id="card" style="display: flex;">
+    <img id="foto_perfil" src="#" alt="foto_perfil">
+    <p id="user">@</p>
+    <p id="preferencias">1-pref <br> 2-pref <br> 3-pref <br> 4-pref <br> 5-pref <br> 6-pref <br> 7-pref <br> 8-pref <br> 9-pref <br> 10-pref</p>
+    <div id="button">
+        <button type="submit" id="match"><img src="./assets/img/match.png"></button>
+        <button type="submit" id="recusar"><img src="./assets/img/recusar.png"></button>
     </div>
+</div>
+
         
     <div class="nav_bar_inline">
         <div id="cidade">
@@ -34,6 +37,7 @@
             <a href="#"><img src="#" alt=""></a>
         </div>
     </div>
+
 <div id="map"></div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>

@@ -40,6 +40,7 @@ input.addEventListener("change", function() {
 
 let circle = null;
 let img_pefil = document.getElementById("img_perfil");
+let card = document.getElementById("card");
 let fomr1 = document.getElementById("form1");
 let form2 = document.getElementById("form2");
 let form3 = document.getElementById("form3");
@@ -72,7 +73,7 @@ function carregarPreferencias() {
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <label>
-                        <input type="checkbox" name="preferencia[]" value="${pref.PreferenciaID}">
+                        <input id="pref_selecao" type="checkbox" name="preferencia[]" value="${pref.PreferenciaID}">
                         ${pref.Nome}
                     </label>
                 `;
@@ -132,6 +133,43 @@ document.getElementById("btn2").addEventListener("click", (e) => {
     });
 });
 
+function mostrarUsuarios(){
+        let foto_perfil = document.getElementById("foto_perfil");
+        let nome_user = document.getElementById("user");
+        let preferencias = document.getElementById("preferencias");
+        let match = document.getElementById("match");
+        let recusar = document.getElementById("recusar");
+    
+        card.style.display = "flex";
+    
+        fetch('./actions/usuarios-lista.php')
+            .then(response => response.json())
+            .then(lista => {
+    
+                if (!lista || lista.length === 0) {
+                    console.log("Nenhum usuário encontrado.");
+                    return;
+                }
+    
+                // pega o primeiro usuário encontrado
+                let usuario = lista[0];
+    
+                foto_perfil.src = usuario.Imagem;
+                nome_user.innerText = "@" + usuario.Usuario;
+                preferencias.innerText = usuario.Preferencias;
+            });
+
+            match.addEventListener("click", () => {
+                card.style.display = "none";
+            });
+        
+            recusar.addEventListener("click", () => {
+                card.style.display = "none";
+            });
+        
+    }
+    
+
 document.getElementById("btn3").addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -146,6 +184,7 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     })
     .then(() =>{
         container.style.display = "none";
+        mostrarUsuarios();
         removerCirculo();
     })
 });

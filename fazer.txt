@@ -1,10 +1,6 @@
--- Desenvolver os card dos usuários aparecidos
-
 -- Fazer uma contagem de ate 10 preferencias
 
 -- Fazer a foto de perfil do usuário ir para o botao de perfil
-
--- Achar uma API mais precisa na captura de LAT e LONG
 
 -- Implementar o ranking
 

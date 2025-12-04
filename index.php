@@ -26,7 +26,6 @@ include_once './includes/header.php';
 
 </div>
 
-
 <div class="nav_bar_inline">
     <div class="cidade">
         <?php
@@ -45,6 +44,16 @@ include_once './includes/header.php';
     </div>
     <div class="config">
         <a href="#" id="config"><img src="./assets/img/config.png" alt=""></a>
+    </div>
+</div>
+
+<div class="card" id="card" style="display: none;">
+    <img id="foto_perfil" src="">
+    <p id="user"></p>
+    <p id="preferencias"></p>
+    <div id="button">
+        <button type="submit" id="match"><img src="./assets/img/match.png"></button>
+        <button type="submit" id="recusar"><img src="./assets/img/recusar.png"></button>
     </div>
 </div>
 

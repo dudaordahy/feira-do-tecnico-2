@@ -9,7 +9,7 @@ include_once './includes/header-configuracao.php';
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <ul>
-        <button type="button" id="voltar"><img src="./assets/img/proximo.png" alt=""></button>
+        <button type="button" id="voltar"><img src="./assets/img/voltar.png" alt=""></button>
         <li data-section="conta" class="active">Conta</li>
         <li data-section="personalizacao">Personalização</li>
         <li data-section="suporte">Suporte</li>
@@ -77,10 +77,14 @@ include_once './includes/header-configuracao.php';
                 $senha = $_SESSION['Usuario']['Senha'];
                 echo "$senha";
                 ?>"/>
-
+                
+                <!-- <button type="submit">Salvar</button> -->
             </div>
-                <h2 class="action">Excluir Conta</h2>
-                <h2 class="action">Sair</h2>
+            <div class="btns">
+                <h2 id="txt_sair">Deseja sair do connect?</h2>
+                <button type="button" id="excluir">Excluir Conta</button>
+                <button type="button" id="sair">Sair</button>
+              </div>
         </section>
 
       <!-- PERSONALIZAÇÃO -->

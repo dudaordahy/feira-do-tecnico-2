@@ -6,5 +6,5 @@ $_SESSION['Usuario'] = '';
 // destroi a sessao do usuario
 session_destroy();
 // redireciona no logoff    
-header('Location: ../cadastro.php?msg=fazlogin');
+header('Location: ../cadastro.php');
 ?>

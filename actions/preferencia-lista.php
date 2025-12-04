@@ -14,7 +14,7 @@ $colecao = array();
 
 // laco que cria o novo array com os dados
 while ($dados = mysqli_fetch_assoc($resultado)) {
-    array_push($colecao,$dados);
+    array_push($colecao, $dados);
 }
 
 // define como json

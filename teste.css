@@ -1,304 +1,82 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    height: 700px;
-    width: 100%;
-    overflow: hidden;
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff;
+  background-image: url(imgs/ESCALA.png);
+  background-repeat: no-repeat;
+
+  background-size: 900px 1650px;
 }
 
-.container_escolhas{
-    width: 900px;
-    height: 550px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    z-index: 10;
-    background:#3bdac2;
-    border-radius: 16px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+h2 {
+  display: flex;
+  margin-left: 500px;
 }
 
-form{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.box1 {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-#map{
-    height: 100%;
-    width: 100%;
-    z-index: 0;
+.pref {
+  width: 380px;
 }
 
-.txt_escolhas{
-    margin: 10px;
+#pf {
+  font-size: 20px;
 }
 
-#fileInput {
-    display: none;
+.item {
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2f2f2;
+  padding: 12px 15px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 18px;
+  flex: 1;
+  font-weight: 500;
 }
 
-.escolher_img{
-    padding: 10px 20px;
-    background: #268f7f;
-    color: #ffffff;
-    border-radius: 10px;
-    cursor: pointer;
-    display: inline-block;
-    margin: 10px;
-    transition: 0.5s;
+.item input[type="checkbox"] {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
 }
 
-.escolher_img:hover{
-    background-color: #fff;
-    color: #268f7f;
+.img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-left: 15px;
 }
 
-/* Preview redondo */
-#preview img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover; /* mantém proporção sem esticar */
-    margin: 10px;
-    border: 2px solid #ccc;
+.box2 {
+  width: 40%;
+  background: #fafafa;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
 }
 
-#btn1{
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* cursor */
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: default;
 }
 
-#btn1 img{
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+.item:hover,
+.item:hover * {
+  cursor: pointer !important;
 }
 
-#btn2{
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.item[draggable="true"] {
+  cursor: grab !important;
 }
-
-#btn2 img{
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-}
-
-#btn3{
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#btn3 img{
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-}
-
-
-.nav_bar_inline{
-    background-color: transparent;
-    position: absolute;
-    z-index: 5;
-    width: 100%;
-    height: 50px;
-    display: flex;
-    align-items: center;
-}
-
-.cidade{
-    background-color: #268f7f;
-    border-radius: 16px;
-    width: 200px;
-    text-align: center;
-    position: absolute;
-    left: 20px;
-}
-
-#txt_cidade{
-    font-size: 20px;
-}
-
-#perfil{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    background-color: #268f7f;
-    cursor: pointer;
-}
-
-#perfil img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-}
-
-.nav_bar_coluna{
-    background-color: transparent;
-    position: absolute;
-    z-index: 5;
-    display: inline;
-    width: 60px;
-    height: 550px;
-    right: 0;
-    bottom: 0;
-}
-
-#direct{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #268f7f;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#direct img{
-    width: 30px;
-    height: 30px;
-}
-
-#config{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: #268f7f;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#config img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.card{
-    background-color: #268f7f;
-    z-index: 10;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 300px;
-    height: auto;
-    border-radius: 16px;
-}
-
-.card img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 10px;
-}
-
-#user{
-    font-size: 20px;
-    width: 150px;
-    height: auto;
-    margin: 10px;
-    text-align: center;
-}
-
-#preferencias{
-    font-size: 20px;
-    width: 150px;
-    height: auto;
-    margin: 10px;
-    text-align: center;
-}
-
-#button{
-    display: inline;
-    width: auto;
-    height: auto;
-    padding: 10px;
-}
-
-#match{
-    width: 100px;
-    height: 40px;
-    border-radius: 16px;
-    border: none;
-    background-color: green;
-    cursor: pointer;
-}
-
-#match img{
-    width: 50px;
-    height: 30px;
-    object-fit: contain;
-    margin: 0;
-}
-
-#recusar{
-    width: 100px;
-    height: 40px;
-    border-radius: 16px;
-    border: none;
-    background-color: red;
-    cursor: pointer;
-}
-
-#recusar img{
-    width: 50px;
-    height: 30px;
-    object-fit: contain;
-    margin: 0;
+.item[draggable="true"]:active {
+  cursor: grabbing !important;
 }

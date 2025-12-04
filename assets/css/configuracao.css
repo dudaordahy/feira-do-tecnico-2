@@ -223,3 +223,32 @@
     height: 40px;
     border-radius: 50%;
   }
+
+.btns{
+  max-width: 500px;
+  height: auto;
+}
+
+#excluir{
+  background-color: red;
+  width: 100px;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#sair{
+  background-color: rgb(124, 124, 124);
+  width: 100px;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+#txt_sair{
+  margin: 10px 0;
+}

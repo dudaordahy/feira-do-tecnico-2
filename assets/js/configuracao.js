@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
     /* ===== FONTE ===== */
     const fontSelect = document.getElementById("fontSizeSelect");
-  
+
     if (localStorage.getItem("fontSize")) {
-      document.body.style.fontSize = localStorage.getItem("fontSize");
-      fontSelect.value = localStorage.getItem("fontSize");
+        document.body.style.fontSize = localStorage.getItem("fontSize");
+        fontSelect.value = localStorage.getItem("fontSize");
     }
   
     fontSelect.addEventListener("change", () => {
@@ -88,3 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
   });
+  
+  const voltar = document.getElementById("voltar");
+  voltar.addEventListener("click", ()=>{
+    window.location.href = "./index.php";
+  })

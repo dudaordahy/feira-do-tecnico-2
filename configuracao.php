@@ -9,7 +9,7 @@ include_once './includes/header-configuracao.php';
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <ul>
-        <li data-section="voltar">Voltar</li>
+        <button type="button" id="voltar"><img src="./assets/img/proximo.png" alt=""></button>
         <li data-section="conta" class="active">Conta</li>
         <li data-section="personalizacao">Personalização</li>
         <li data-section="suporte">Suporte</li>
@@ -19,7 +19,6 @@ include_once './includes/header-configuracao.php';
 
     <!-- MAIN CONTENT -->
     <main class="content">
-
       <!-- CONTA -->
         <section id="conta" class="section active">
             <h2>Dados de Cadastro</h2>
@@ -78,8 +77,8 @@ include_once './includes/header-configuracao.php';
                 $senha = $_SESSION['Usuario']['Senha'];
                 echo "$senha";
                 ?>"/>
-            </div>
 
+            </div>
                 <h2 class="action">Excluir Conta</h2>
                 <h2 class="action">Sair</h2>
         </section>

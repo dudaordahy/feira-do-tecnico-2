@@ -43,7 +43,7 @@ include_once './includes/header.php';
         <a href="#" id="direct"><img src="./assets/img/direct.png" alt=""></a>
     </div>
     <div class="config">
-        <a href="#" id="config"><img src="./assets/img/config.png" alt=""></a>
+        <a href="./configuracao.php" id="config"><img src="./assets/img/config.png" alt=""></a>
     </div>
 </div>
 

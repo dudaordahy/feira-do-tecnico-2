@@ -1,10 +1,10 @@
 -- Fazer uma contagem de ate 10 preferencias
 
--- Fazer a foto de perfil do usuário ir para o botao de perfil
+-- Fazer a foto de perfil do usuário ir para o botao de perfil e no card
 
 -- Implementar o ranking
 
--- Implementar a página de configurações 
+-- Resolver o card (Pegar as pessoas dentro do raio e com preferencias parecidas)
 
 -- Implementar a página de perfil
 

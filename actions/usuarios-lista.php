@@ -45,7 +45,7 @@ $sql = "SELECT
 
         HAVING 
             DistanciaUsuarioComPessoas <= ".$sesUsuario['Distancia']."
-            AND DistanciaUsuarioComPessoas <= u.Distancia
+            AND u.Distancia <= DistanciaUsuarioComPessoas
 
         ORDER BY 
             DistanciaUsuarioComPessoas ASC,

@@ -7,7 +7,7 @@ $user = $_POST['user'];
 $senha = $_POST['senha'];
 
 // monta o SQL que será executado no banco de dados
-$sql = "SELECT UsuarioID, Nome_completo, Email, Usuario, Imagem, CEP, Endereco, Cidade, Estado, Numero, Distancia, Latitude, Longitude FROM usuarios WHERE Usuario = '{$user}' AND Senha = '{$senha}' ";
+$sql = "SELECT UsuarioID, Nome_completo, Email, Senha, Usuario, Imagem, CEP, Endereco, Cidade, Estado, Numero, Distancia, Latitude, Longitude FROM usuarios WHERE Usuario = '{$user}' AND Senha = '{$senha}' ";
 
 // executar o banco de dados
 $resultado = mysqli_query($conexao, $sql);

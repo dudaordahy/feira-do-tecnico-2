@@ -57,7 +57,7 @@ document.getElementById("btn1").addEventListener("click", (e) => {
     .then(() => {
         form1.style.display = "none";
         form2.style.display = "flex";
-        
+
         carregarPreferencias()
     });
 })
@@ -133,42 +133,64 @@ document.getElementById("btn2").addEventListener("click", (e) => {
     });
 });
 
-function mostrarUsuarios(){
-        let foto_perfil = document.getElementById("foto_perfil");
-        let nome_user = document.getElementById("user");
-        let preferencias = document.getElementById("preferencias");
-        let match = document.getElementById("match");
-        let recusar = document.getElementById("recusar");
-    
-        card.style.display = "flex";
-    
-        fetch('./actions/usuarios-lista.php')
-            .then(response => response.json())
-            .then(lista => {
-    
-                if (!lista || lista.length === 0) {
-                    console.log("Nenhum usuário encontrado.");
-                    return;
-                }
-    
-                // pega o primeiro usuário encontrado
-                let usuario = lista[0];
-    
-                foto_perfil.src = usuario.Imagem;
-                nome_user.innerText = "@" + usuario.Usuario;
-                preferencias.innerText = usuario.Preferencias;
-            });
+function mostrarUsuarios() {
+    let foto_perfil = document.getElementById("foto_perfil");
+    let nome_user = document.getElementById("user");
+    let preferencias = document.getElementById("preferencias");
+    let match = document.getElementById("match");
+    let recusar = document.getElementById("recusar");
 
-            match.addEventListener("click", () => {
-                card.style.display = "none";
-            });
-        
-            recusar.addEventListener("click", () => {
-                card.style.display = "none";
-            });
-        
+    let index = 0;     // controla qual usuário está sendo exibido
+    let lista = [];    // vai armazenar todos os usuários
+
+    card.style.display = "flex";
+
+    // Função que atualiza os dados do card
+    function atualizarCard() {
+        let usuario = lista[index];
+
+        foto_perfil.src = usuario.Imagem;
+        nome_user.innerText = "@" + usuario.Usuario;
+        preferencias.innerText = usuario.Preferencias;
     }
-    
+
+    // Avançar para o próximo usuário
+    function proximoUsuario() {
+        index++;
+
+        // Se chegar ao fim
+        if (index >= lista.length) {
+            card.style.display = "none";
+        }
+
+        atualizarCard();
+    }
+
+    // Carrega os usuários
+    fetch('./actions/usuarios-lista.php')
+        .then(response => response.json())
+        .then(data => {
+
+            if (!data || data.length === 0) {
+                console.log("Nenhum usuário encontrado.");
+                return;
+            }
+
+            lista = data; // guarda todos os usuários para usar no avanço
+
+            atualizarCard(); // mostra o primeiro
+        });
+
+    // Botões para avançar
+    match.addEventListener("click", () => {
+        proximoUsuario();
+    });
+
+    recusar.addEventListener("click", () => {
+        proximoUsuario();
+    });
+}
+
 
 document.getElementById("btn3").addEventListener("click", (e) => {
     e.preventDefault();

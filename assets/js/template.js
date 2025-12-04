@@ -57,7 +57,7 @@ document.getElementById("btn1").addEventListener("click", (e) => {
     .then(() => {
         form1.style.display = "none";
         form2.style.display = "flex";
-
+        
         carregarPreferencias()
     });
 })

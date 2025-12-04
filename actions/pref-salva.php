@@ -7,8 +7,6 @@ include_once '../includes/logado.php';
 $UsuarioID = $_SESSION['Usuario']['UsuarioID'];
 $preferencias = $_POST['preferencia'];
 
-if(count($preferencias) == 10){
-
     $sql = "DELETE FROM usuarios_preferencias WHERE UsuarioID = $UsuarioID;";
     mysqli_query($conexao, $sql);
 
@@ -20,5 +18,4 @@ if(count($preferencias) == 10){
     // rediceriona para pagina index
     header('Location: ../index.php');
     exit()
-}
 ?>

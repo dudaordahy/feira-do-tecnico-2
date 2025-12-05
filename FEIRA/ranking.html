@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranking Pref</title>
+    <link rel="stylesheet" href="ranking.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <header>
+    <h2>Escolha suas preferências</h2>
+  </header>
+
+  <!-- irá definir o css do container principal: caixa branca, centralizada com sombra e borda arredondada -->
+  <div class="box1">
+    <div class="pref">
+      <!-- cria os inputs checkbox c/ nome e ícone -->
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref0" />
+        <label id="pf">Pets</label>
+        <img src="../FEIRA/imgs/pets-removebg-preview.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref1" />
+        <label id="pf">Literatura</label>
+        <img src="../FEIRA/imgs/stack-of-books.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref2" />
+        <label id="pf">Estilo Musical</label>
+        <img src="../FEIRA/imgs/musical-note.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref3" />
+        <label id="pf">Esporte</label>
+        <img src="../FEIRA/imgs/esportes-com-bolas.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref4" />
+        <label id="pf">Gatronomia</label>
+        <img src="../FEIRA/imgs/prefGastro.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref5" />
+        <label id="pf">Moda</label>
+        <img src="../FEIRA/imgs/design-de-moda.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Cinema</label>
+        <img src="../FEIRA/imgs/pipoca.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Artesanato</label>
+        <img src="../FEIRA/imgs/feito-a-mao.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Aventura</label>
+        <img src="../FEIRA/imgs/aventura.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Jardinagem</label>
+        <img src="../FEIRA/imgs/jardinagem.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Fotografia</label>
+        <img src="../FEIRA/imgs/fotografia.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Viagens</label>
+        <img src="../FEIRA/imgs/viagem.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Trabalho</label>
+        <img src="../FEIRA/imgs/documentos.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Tecnologia</label>
+        <img src="../FEIRA/imgs/transformacao.png" class="img" />
+      </div>
+
+      <div
+        class="item"
+        draggable="true"
+        ondragstart="dragstartHandler(event)"
+        ondragover="dragoverItem(event)"
+        ondrop="dropItem(event)"
+      >
+        <input type="checkbox" id="pref6" />
+        <label id="pf">Competições</label>
+        <img src="../FEIRA/imgs/jogador-profissional.png" class="img" />
+      </div>
+    </div>
+
+    <div class="box2">
+      <h1>Teste de div</h1>
+    </div>
+  </div>
+</html>

@@ -12,8 +12,8 @@ include_once './includes/header-cadastro.php';
                 </div>
 
                 <div class="input-box">
-                    <input type="password" placeholder="Senha" name="senha" required>
-                    <img src="./assets/img/cadeado.novo.jfif" class="cadeado">
+                    <input id="login-senha" name="senha" type="password" placeholder="Senha" required minlength="6" maxlength="10" required>
+                    <img src="./assets/img/visivel.png" class="usuario" data-target="login-senha">
                 </div>
 
                 <button type="submit" class="btn">Login</button>
@@ -61,8 +61,8 @@ include_once './includes/header-cadastro.php';
                 </div>
 
                 <div class="input-box">
-                    <input type="password" placeholder="Senha" name="senha" required>
-                   <img src="./assets/img/cadeado.novo.jfif" class="cadeado">
+                    <input id="cadastro-senha" type="password" name="senha" placeholder="Senha" required minlength="6" maxlength="10" required>
+                    <img src="./assets/img/visivel.png" class="usuario" data-target="cadastro-senha">
                 </div>
 
                 <button type="submit" class="btn">Cadastrar</button>

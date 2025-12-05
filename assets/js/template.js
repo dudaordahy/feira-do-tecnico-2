@@ -4,7 +4,7 @@ fetch('./actions/pegarLatLong.php')
         var latitude = parseFloat(data.latitude);
         var longitude = parseFloat(data.longitude);
 
-        window.map = L.map('map').setView([latitude, longitude], 15);
+        window.map = L.map('map').setView([latitude, longitude], 13);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 20
@@ -45,22 +45,53 @@ let fomr1 = document.getElementById("form1");
 let form2 = document.getElementById("form2");
 let form3 = document.getElementById("form3");
 
-document.getElementById("btn1").addEventListener("click", (e) => {
-    e.preventDefault();
 
-    const dados = new FormData(form1);
-
-    fetch("./actions/foto-salva.php", {
-        method: "POST",
-        body: dados
-    })
-    .then(() => {
-        form1.style.display = "none";
-        form2.style.display = "flex";
-
-        carregarPreferencias();
-    });
+fetch('./actions/pegarFoto.php')
+.then(response => response.json())
+.then(data => {
+    img_perfil.src = './contents/perfil/' + data.foto_perfil;
+    let fotoUsuarioAtual = data.foto_perfil;
+    if(fotoUsuarioAtual.length > 0){
+        container.style.display = "none";
+        card.style.display = 'none';
+        carregarFoto();
+    }
+    else{
+        img_pefil.src = "./assets/img/user.png";
+        card.style.display = "none"
+        if(primeiroEvento()){
+            fetch('./actions/pegarFoto.php')
+            .then(response => response.json())
+            .then(data => {
+                img_perfil.src = './contents/perfil/' + data.foto_perfil;
+            })
+        }
+    }
 })
+
+function carregarFoto(){
+    img_pefil.style.width = "40px";
+    img_pefil.style.height = "40px";
+    img_pefil.style.objectFit = 'cover';
+}
+function primeiroEvento(){
+    document.getElementById("btn1").addEventListener("click", (e) => {
+        e.preventDefault();
+    
+        const dados = new FormData(form1);
+    
+        fetch("./actions/foto-salva.php", {
+            method: "POST",
+            body: dados
+        })
+        .then(() => {
+            form1.style.display = "none";
+            form2.style.display = "flex";
+            
+            carregarPreferencias();
+        });
+    })
+}  
 
 function carregarPreferencias() {
     const listaPai = document.querySelector("#listaPreferencias");
@@ -196,7 +227,7 @@ function mostrarUsuarios() {
     function atualizarCard() {
         let usuario = lista[index];
 
-        foto_perfil.src = usuario.Imagem;
+        foto_perfil.src = './contents/perfil/' + usuario.Imagem;
         nome_user.innerText = "@" + usuario.Usuario;
         preferencias.innerText = usuario.Preferencias;
     }
@@ -238,7 +269,6 @@ function mostrarUsuarios() {
     });
 }
 
-
 document.getElementById("btn3").addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -253,7 +283,91 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     })
     .then(() =>{
         container.style.display = "none";
-        mostrarUsuarios();
         removerCirculo();
+        mostrarUsuarios();
     })
 });
+
+    const sidebar = document.getElementById("sidebar");
+    const openSidebar = document.getElementById("openSidebar");
+    const closeSidebar = document.getElementById("closeSidebar");
+
+    openSidebar.addEventListener("click", () => {
+        let direct = document.getElementById("direct");
+        let config = document.getElementById("config");
+        sidebar.classList.add("show");
+        closeSidebar.style.display = "block";
+        direct.style.display = "none";        
+        config.style.display = "none";
+        closeSidebar.textContent = "→";
+    });
+
+    closeSidebar.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        closeSidebar.style.display = "none";
+        direct.style.display = "flex";   
+        config.style.display = "flex";
+    });
+
+    /* Troca imagem */
+    const inputFile = document.getElementById("input-file");
+    const circle_foto = document.getElementById("circle");
+    const iconDefault = document.getElementById("icon-default");
+    const profileImg = document.getElementById("profile-img");
+
+    circle_foto.addEventListener("click", () => inputFile.click());
+
+    inputFile.addEventListener("change", () => {
+        const file = inputFile.files[0];
+        if (!file) return;
+        profileImg.src = URL.createObjectURL(file);
+        profileImg.style.display = "block";
+        iconDefault.style.display = "none";
+        showSaveBtn();
+    });
+
+    /* Salvar dados */
+    const saveBtn = document.getElementById("saveChanges");
+    const username = document.getElementById("username");
+    const distance = document.getElementById("distance");
+
+    function showSaveBtn() {
+        saveBtn.style.display = "block";
+    }
+
+    username.addEventListener("input", showSaveBtn);
+    distance.addEventListener("input", showSaveBtn);
+
+    saveBtn.addEventListener("click", () => {
+        localStorage.setItem("username", username.value);
+        localStorage.setItem("distance", distance.value);
+
+        if (profileImg.src) {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = profileImg.naturalWidth;
+            canvas.height = profileImg.naturalHeight;
+            ctx.drawImage(profileImg, 0, 0);
+            localStorage.setItem("profileImage", canvas.toDataURL("image/png"));
+        }
+
+        saveBtn.style.display = "none";
+        alert("Alterações salvas!");
+    });
+
+    /* Carregar dados salvos */
+    window.addEventListener("load", () => {
+        const savedName = localStorage.getItem("username");
+        if (savedName) username.value = savedName;
+
+        const savedDistance = localStorage.getItem("distance");
+        if (savedDistance) distance.value = savedDistance;
+
+        const savedImage = localStorage.getItem("profileImage");
+        if (savedImage) {
+            profileImg.src = savedImage;
+            profileImg.style.display = "block";
+            iconDefault.style.display = "none";
+        }
+    });
+

@@ -44,13 +44,12 @@ $sql = "SELECT
         GROUP BY u.UsuarioID
 
         HAVING 
-            DistanciaUsuarioComPessoas <= ".$sesUsuario['Distancia']."
+            DistanciaUsuarioComPessoas <= (".$sesUsuario['Distancia'].")/666.67
             AND u.Distancia <= DistanciaUsuarioComPessoas
 
         ORDER BY 
             DistanciaUsuarioComPessoas ASC,
             AfinidadePreferencias DESC;";
-
 
 // executa o comando e retorna as informacoes
 $resultado = mysqli_query($conexao,$sql);

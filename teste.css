@@ -1,82 +1,154 @@
 body {
-  background-image: url(imgs/ESCALA.png);
-  background-repeat: no-repeat;
-
-  background-size: 900px 1650px;
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
-h2 {
-  display: flex;
-  margin-left: 500px;
+/* Tela principal */
+.main {
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff;
+  position: relative;
 }
 
-.box1 {
-  width: 60%;
+/* Bolinha que abre a sidebar */
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background: #3bdac2;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.profile-circle:hover { opacity: 0.8; }
+
+/* Sidebar */
+.sidebar {
+  width: 35vw;
+  height: 100vh;
+  background: #3bdac2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform .4s ease;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.pref {
-  width: 380px;
-}
-
-#pf {
-  font-size: 20px;
-}
-
-.item {
-  margin-left: 250px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #f2f2f2;
-  padding: 12px 15px;
-  border-radius: 10px;
-  width: 100%;
-  font-size: 18px;
-  flex: 1;
-  font-weight: 500;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+/* Sidebar aberta */
+.sidebar.show {
+  transform: translateX(0);
 }
 
-.item input[type="checkbox"] {
-  margin-right: 15px;
-  width: 20px;
-  height: 20px;
+/* Arrow fechar sidebar */
+.arrow {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #3bdac2;
+  padding: 7px 12px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  font-size: 22px;
 }
 
-.img {
+/* Foto de perfil */
+.circle {
+  width: 210px;
+  height: 270px;
+  background: #d6d6d6;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.upload-icon {
   width: 80px;
   height: 80px;
-  object-fit: contain;
-  margin-left: 15px;
 }
-
-.box2 {
-  width: 40%;
-  background: #fafafa;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
-
-/* cursor */
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.profile-img {
   width: 100%;
-  cursor: default;
+  height: 100%;
+  object-fit: cover;
+  display: none;
 }
 
-.item:hover,
-.item:hover * {
-  cursor: pointer !important;
+/* Hover texto */
+.overlay-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.circle:hover .overlay-text { opacity: 1; }
+.circle:hover .upload-icon { opacity: 0; }
+
+#input-file {
+  display: none;
 }
 
-.item[draggable="true"] {
-  cursor: grab !important;
+/* Inputs username e distância */
+.form-group {
+  width: 65%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 5px;
 }
-.item[draggable="true"]:active {
-  cursor: grabbing !important;
+.username-input, .distance-input {
+  width: 100%;
+  height: 32px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+}
+
+/* Big box preferências */
+.big-box {
+  width: 80%;
+  height: 50%;
+  background: #ffffff;
+  border-radius: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Salvar alterações */
+.footer-box {
+  width: 50%;
+  height: 38px;
+}
+.save-btn {
+  width: 100%;
+  height: 100%;
+  background: #0a7c6f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 2px;
 }

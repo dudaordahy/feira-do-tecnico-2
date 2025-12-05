@@ -10,6 +10,25 @@ loginBtn.addEventListener('click', () => {
   container.classList.remove('active');
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const olhos = document.querySelectorAll(".usuario");
+
+    olhos.forEach(olho => {
+        olho.addEventListener("click", () => {
+            let campo = document.getElementById(olho.dataset.target);
+
+            if (campo.type === "password") {
+                campo.type = "text";
+                olho.src = "./assets/img/olho.png";
+            } else {
+                campo.type = "password";
+                olho.src = "./assets/img/visivel.png";
+            }
+        });
+    });
+});
+
+
 // Quando digita o CEP → ViaCEP completa o endereço
 document.getElementById("cep").addEventListener("blur", function () {
     let cep = this.value.replace(/\D/g, "");

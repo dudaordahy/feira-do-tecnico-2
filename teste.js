@@ -1,41 +1,76 @@
-// Variável global que armazenará o item atualmente sendo arrastado
-let draggedItem = null;
+const sidebar = document.getElementById("sidebar");
+const openSidebar = document.getElementById("openSidebar");
+const closeSidebar = document.getElementById("closeSidebar");
 
-// Função chamada quando o usuário inicia o arrasto de um item
-function dragstartHandler(ev) {
-  // Guarda a referência do elemento que está sendo arrastado
-  draggedItem = ev.target;
+openSidebar.addEventListener("click", () => {
+    sidebar.classList.add("show");
+    closeSidebar.style.display = "block";
+    closeSidebar.textContent = "→";
+});
 
-  // Define que o tipo de operação permitida é "mover" o item
-  ev.dataTransfer.effectAllowed = "move";
+closeSidebar.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    closeSidebar.style.display = "none";
+});
 
-  // Alguns navegadores exigem que se defina algum dado no dataTransfer
-  ev.dataTransfer.setData("text/plain", "");
+/* Troca imagem */
+const inputFile = document.getElementById("input-file");
+const circle = document.getElementById("circle");
+const iconDefault = document.getElementById("icon-default");
+const profileImg = document.getElementById("profile-img");
+
+circle.addEventListener("click", () => inputFile.click());
+
+inputFile.addEventListener("change", () => {
+    const file = inputFile.files[0];
+    if (!file) return;
+    profileImg.src = URL.createObjectURL(file);
+    profileImg.style.display = "block";
+    iconDefault.style.display = "none";
+    showSaveBtn();
+});
+
+/* Salvar dados */
+const saveBtn = document.getElementById("saveChanges");
+const username = document.getElementById("username");
+const distance = document.getElementById("distance");
+
+function showSaveBtn() {
+    saveBtn.style.display = "block";
 }
 
-// Função que permite que o item seja solto em outro elemento
-function dragoverItem(ev) {
-  // Impede o comportamento padrão, permitindo o drop
-  ev.preventDefault();
-}
+username.addEventListener("input", showSaveBtn);
+distance.addEventListener("input", showSaveBtn);
 
-// Função executada quando o item é solto em uma área válida
-function dropItem(ev) {
-  // Evita o comportamento padrão
-  ev.preventDefault();
+saveBtn.addEventListener("click", () => {
+    localStorage.setItem("username", username.value);
+    localStorage.setItem("distance", distance.value);
 
-  // Procura o elemento mais próximo com a classe "item"
-  // Isso evita pegar sub-elementos internos
-  const target = ev.target.closest(".item");
+    if (profileImg.src) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = profileImg.naturalWidth;
+        canvas.height = profileImg.naturalHeight;
+        ctx.drawImage(profileImg, 0, 0);
+        localStorage.setItem("profileImage", canvas.toDataURL("image/png"));
+    }
 
-  // Valida:
-  // - Se o alvo existe
-  // - Se o alvo não é o próprio item sendo arrastado
-  if (!target || target === draggedItem) return;
+    saveBtn.style.display = "none";
+    alert("Alterações salvas!");
+});
 
-  // Obtém o elemento pai onde os itens estão organizados
-  const parent = target.parentNode;
+/* Carregar dados salvos */
+window.addEventListener("load", () => {
+    const savedName = localStorage.getItem("username");
+    if (savedName) username.value = savedName;
 
-  // Insere o item arrastado antes do item-alvo (reposicionamento na lista)
-  parent.insertBefore(draggedItem, target);
-}
+    const savedDistance = localStorage.getItem("distance");
+    if (savedDistance) distance.value = savedDistance;
+
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+        profileImg.src = savedImage;
+        profileImg.style.display = "block";
+        iconDefault.style.display = "none";
+    }
+});

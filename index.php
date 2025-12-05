@@ -20,7 +20,7 @@ include_once './includes/header.php';
 
     <form action="./actions/distancia-salva.php" method="post" id="form3" style="display: none;">
         <h1 class="txt_escolhas">Escolha a distância</h1>
-        <input type="range" name="raioDistancia" id="range" min="200" max="10000" value="200">
+        <input type="range" name="raioDistancia" id="range" min="1000" max="10000" value="100">
         <button id="btn3" type="submit"><img src="./assets/img/proximo.png" alt=""></button>
     </form>
 
@@ -34,8 +34,45 @@ include_once './includes/header.php';
         ?>
     </div>
     <div class="perfil">
-        <a href="#" id="perfil"><img id="img_perfil" src="./assets/img/user.png" alt=""></a>
+        <button class="profile-circle"  id="openSidebar"><img id="img_perfil" src="./assets/img/user.png" alt=""></button>
     </div>
+     <!-- Arrow q ao clicar fecha a sidebar -->
+     <div class="sidebar" id="sidebar">
+            <div class="arrow" id="closeSidebar">←</div>
+
+            <!-- Foto de perfil e função trocar imagem -->
+            <div class="circle" id="circle">
+                <img src="Imagens/upload.png" class="upload-icon" id="icon-default" alt="Upload Icon">
+                <img id="profile-img" alt="Foto" class="profile-img">
+                <div class="overlay-text">Trocar imagem</div>
+                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+            </div>
+
+            <!-- Input username -->
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Seu nome..." class="username-input">
+            </div>
+
+            <!-- Big box preferências -->
+            <div class="big-box">
+                <ul>
+                <li>
+                    
+                </li>
+                </ul>
+            </div>
+
+            <!-- Bottom box distância -->
+            <div class="form-group">
+                <input type="number" id="distance" placeholder="Distância..." class="distance-input">
+            </div>
+            
+            <!-- Footer box salvar alterações -->
+            <div class="footer-box">
+                <button id="saveChanges" class="save-btn">Salvar alterações</button>
+            </div>
+        </div>
+    
 </div>
 
 <div class="nav_bar_coluna">

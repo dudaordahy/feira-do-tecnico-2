@@ -1,3 +1,4 @@
 -- Fazer uma contagem de ate 10 preferencias
 
+-- Salvar banco de dados
 https://uploadcare.com/blog/how-to-upload-files-using-js/

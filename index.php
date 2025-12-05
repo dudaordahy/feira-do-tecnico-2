@@ -4,7 +4,7 @@ include_once './includes/logado.php';
 include_once './includes/header.php';
 ?>
 <div class="container_escolhas" id="container">
-    <form id="form1" method="POST" action="./actions/foto-salva.php">
+    <form class="form" id="form1" method="POST" action="./actions/foto-salva.php">
         <h1 class="txt_escolhas">Escolha sua foto de perfil</h1>
         <span class="escolher_img" onclick="document.getElementById('fileInput').click();">Escolher imagem</span>
         <input type="file" name="fotoPerfil" id="fileInput">
@@ -12,13 +12,13 @@ include_once './includes/header.php';
         <button id="btn1" type="submit"><img src="./assets/img/proximo.png" alt="proximo"></button>
     </form>
 
-    <form id="form2" action="./actions/pref-salva.php" method="POST" style="display: none;">
+    <form class="form" id="form2" action="./actions/pref-salva.php" method="POST" style="display: none;">
         <h1 class="txt_escolhas">Escolha suas preferencias</h1>
         <ul id="listaPreferencias"></ul>
         <button type="submit" id="btn2"><img src="./assets/img/proximo.png" alt=""></button>
     </form> 
 
-    <form action="./actions/distancia-salva.php" method="post" id="form3" style="display: none;">
+    <form class="form" action="./actions/distancia-salva.php" method="post" id="form3" style="display: none;">
         <h1 class="txt_escolhas">Escolha a distância</h1>
         <input type="range" name="raioDistancia" id="range" min="1000" max="10000" value="100">
         <button id="btn3" type="submit"><img src="./assets/img/proximo.png" alt=""></button>
@@ -41,21 +41,21 @@ include_once './includes/header.php';
             <div class="arrow" id="closeSidebar">←</div>
 
             <!-- Foto de perfil e função trocar imagem -->
-            <div class="circle" id="circle">
-                <img src="" class="upload-icon" id="icon-default" alt="Upload Icon">
-                <img id="profile-img" alt="Foto" class="profile-img">
-                <div class="overlay-text">Trocar imagem</div>
-                <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
-            </div>
+            <form id="formTrocarFoto" action="./actions/atualizacoes.php" method="POST">
+                <div class="circle" id="circle">
+                    <img src="" class="upload-icon" id="icon-default" alt="Upload Icon">
+                    <img id="profile-img" alt="Foto" class="profile-img">
+                    <div class="overlay-text">Trocar imagem</div>
+                    <input type="file" accept="image/*" name="fotoPerfil" id="input-file">
+                </div>
+            </form>
 
             <!-- Input username -->
-            <div class="form-group">
-                <input type="text" id="username" value="
-                <?php
-                $user = $_SESSION['Usuario']['Usuario'];
-                echo "@$user";
-                ?>" class="username-input">
-            </div>
+            <form action="./actions/atualizacoes.php" method="POST" id="formTrocarUsuario">
+                <div class="form-group">
+                    <input type="text" class="username-input" id="username" name="username" value="<?php echo '@' . $_SESSION['Usuario']['Usuario']; ?>">
+                </div>
+            </form>
 
             <!-- Big box preferências -->
             <div class="big-box" id="bigBox">
@@ -63,16 +63,15 @@ include_once './includes/header.php';
             </div>
 
             <!-- Bottom box distância -->
-            <div class="form-group">
-                <input type="number" id="distance" value="<?php
-                $distancia = $_SESSION['Usuario']['Distancia'];
-                echo "$distancia";
-                ?>" class="distance-input">
-            </div>
+            <form id="formTrocarDistancia" method="POST" action="./actions/atualizacoes.php">
+                <div class="form-group">
+                <input type="number" class="username-input" id="distance" name="distance" value="<?php echo $_SESSION['Usuario']['Distancia']; ?>">
+                </div>
+            </form>
             
             <!-- Footer box salvar alterações -->
             <div class="footer-box">
-                <button id="saveChanges" class="save-btn">Salvar alterações</button>
+                <button type="submit" id="saveChanges" class="save-btn">Salvar alterações</button>
             </div>
         </div>
     

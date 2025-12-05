@@ -282,7 +282,7 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     const closeSidebar = document.getElementById("closeSidebar");
 
     function inserirPrefs(){
-            const ul = document.querySelector("#prefs");
+        const ul = document.querySelector("#prefs");
         ul.innerHTML = ""; // limpa lista caso usuário volte
 
         fetch('./actions/preferencia-lista.php')
@@ -338,13 +338,38 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     const saveBtn = document.getElementById("saveChanges");
     const username = document.getElementById("username");
     const distance = document.getElementById("distance");
+    const formTrocarFoto = document.getElementById("formTrocarFoto");
+    const formTrocarDistancia = document.getElementById("formTrocarDistancia");
+    const formTrocarUsuario = document.getElementById("formTrocarUsuario");
+
+    saveBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const dados = new FormData();
+    
+    // FOTO
+    const foto = document.getElementById("input-file").files[0];
+    if (foto) dados.append("fotoPerfil", foto);
+
+    // USERNAME
+    dados.append("username", username.value.replace("@", ""));
+
+    // DISTANCIA
+    dados.append("distance", distance.value);
+
+    fetch("./actions/atualizacoes.php", {
+        method: "POST",
+        body: dados
+    })
+});
 
     function showSaveBtn() {
         saveBtn.style.display = "block";
     }
 
-    username.addEventListener("input", showSaveBtn);
-    distance.addEventListener("input", showSaveBtn);
+    function sairSaveBtn(){
+        saveBtn.style.display = "none";
+    }
 
     saveBtn.addEventListener("click", () => {
         localStorage.setItem("username", username.value);
@@ -360,7 +385,6 @@ document.getElementById("btn3").addEventListener("click", (e) => {
         }
 
         saveBtn.style.display = "none";
-        alert("Alterações salvas!");
     });
 
     /* Carregar dados salvos */

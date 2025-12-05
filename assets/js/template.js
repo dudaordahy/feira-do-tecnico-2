@@ -50,23 +50,9 @@ fetch('./actions/pegarFoto.php')
 .then(response => response.json())
 .then(data => {
     img_perfil.src = './contents/perfil/' + data.foto_perfil;
-    let fotoUsuarioAtual = data.foto_perfil;
-    if(fotoUsuarioAtual.length > 0){
-        container.style.display = "none";
-        card.style.display = 'none';
-        carregarFoto();
-    }
-    else{
-        img_pefil.src = "./assets/img/user.png";
-        card.style.display = "none"
-        if(primeiroEvento()){
-            fetch('./actions/pegarFoto.php')
-            .then(response => response.json())
-            .then(data => {
-                img_perfil.src = './contents/perfil/' + data.foto_perfil;
-            })
-        }
-    }
+    iconDefault.src = './contents/perfil/' + data.foto_perfil;
+    carregarFoto();
+    container.style.display ='none';
 })
 
 function carregarFoto(){
@@ -74,24 +60,25 @@ function carregarFoto(){
     img_pefil.style.height = "40px";
     img_pefil.style.objectFit = 'cover';
 }
-function primeiroEvento(){
-    document.getElementById("btn1").addEventListener("click", (e) => {
-        e.preventDefault();
-    
-        const dados = new FormData(form1);
-    
-        fetch("./actions/foto-salva.php", {
-            method: "POST",
-            body: dados
-        })
-        .then(() => {
-            form1.style.display = "none";
-            form2.style.display = "flex";
-            
-            carregarPreferencias();
-        });
+
+document.getElementById("btn1").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const dados = new FormData(form1);
+
+    fetch("./actions/foto-salva.php", {
+        method: "POST",
+        body: dados
     })
-}  
+    .then(() => {
+        form1.style.display = "none";
+        form2.style.display = "flex";
+        
+        carregarPreferencias();
+    });
+})
+
+
 
 function carregarPreferencias() {
     const listaPai = document.querySelector("#listaPreferencias");
@@ -286,11 +273,30 @@ document.getElementById("btn3").addEventListener("click", (e) => {
         removerCirculo();
         mostrarUsuarios();
     })
-});
+}); 
 
+    const prefs = document.getElementById("prefs");
+    const bigBox = document.getElementById("bigBox");
     const sidebar = document.getElementById("sidebar");
     const openSidebar = document.getElementById("openSidebar");
     const closeSidebar = document.getElementById("closeSidebar");
+
+    function inserirPrefs(){
+            const ul = document.querySelector("#prefs");
+        ul.innerHTML = ""; // limpa lista caso usuário volte
+
+        fetch('./actions/preferencia-lista.php')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(pref => {
+                const li = document.createElement('p');
+                    li.innerHTML = `
+                        <p>${pref.PreferenciaID} - ${pref.Nome}</>
+                    `;
+                    ul.appendChild(li);
+                });
+            });
+    }
 
     openSidebar.addEventListener("click", () => {
         let direct = document.getElementById("direct");
@@ -300,6 +306,7 @@ document.getElementById("btn3").addEventListener("click", (e) => {
         direct.style.display = "none";        
         config.style.display = "none";
         closeSidebar.textContent = "→";
+        inserirPrefs();
     });
 
     closeSidebar.addEventListener("click", () => {
@@ -314,6 +321,7 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     const circle_foto = document.getElementById("circle");
     const iconDefault = document.getElementById("icon-default");
     const profileImg = document.getElementById("profile-img");
+
 
     circle_foto.addEventListener("click", () => inputFile.click());
 

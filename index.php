@@ -42,7 +42,7 @@ include_once './includes/header.php';
 
             <!-- Foto de perfil e função trocar imagem -->
             <div class="circle" id="circle">
-                <img src="Imagens/upload.png" class="upload-icon" id="icon-default" alt="Upload Icon">
+                <img src="" class="upload-icon" id="icon-default" alt="Upload Icon">
                 <img id="profile-img" alt="Foto" class="profile-img">
                 <div class="overlay-text">Trocar imagem</div>
                 <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
@@ -50,21 +50,24 @@ include_once './includes/header.php';
 
             <!-- Input username -->
             <div class="form-group">
-                <input type="text" id="username" placeholder="Seu nome..." class="username-input">
+                <input type="text" id="username" value="
+                <?php
+                $user = $_SESSION['Usuario']['Usuario'];
+                echo "@$user";
+                ?>" class="username-input">
             </div>
 
             <!-- Big box preferências -->
-            <div class="big-box">
-                <ul>
-                <li>
-                    
-                </li>
-                </ul>
+            <div class="big-box" id="bigBox">
+                <ul id="prefs"></ul>
             </div>
 
             <!-- Bottom box distância -->
             <div class="form-group">
-                <input type="number" id="distance" placeholder="Distância..." class="distance-input">
+                <input type="number" id="distance" value="<?php
+                $distancia = $_SESSION['Usuario']['Distancia'];
+                echo "$distancia";
+                ?>" class="distance-input">
             </div>
             
             <!-- Footer box salvar alterações -->

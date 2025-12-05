@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Nov-2025 às 02:04
+-- Tempo de geração: 05-Dez-2025 às 17:54
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -38,21 +38,21 @@ CREATE TABLE `preferencias` (
 --
 
 INSERT INTO `preferencias` (`PreferenciaID`, `Nome`, `Imagem`) VALUES
-(1, 'gastronomia', ''),
-(2, 'esportes', ''),
-(3, 'cultura', ''),
-(4, 'tecnologia', ''),
-(5, 'pets', ''),
-(6, 'plantas', ''),
-(7, 'trabalho', ''),
-(8, 'religião', ''),
-(9, 'jogos online', ''),
-(10, 'música', ''),
-(11, 'preferencia11', ''),
-(12, 'preferencia12', ''),
-(13, 'preferencia13', ''),
-(14, 'preferencia14', ''),
-(15, 'preferencia15', '');
+(1, 'gastronomia', './assets/img/gastronomia.png'),
+(2, 'esportes', './assets/img/esportes.png'),
+(3, 'literatura', './assets/img/literatura.png'),
+(4, 'tecnologia', './assets/img/tecnologia.png'),
+(5, 'pets', './assets/img/pets.png'),
+(6, 'jardinagem', './assets/img/jardinagem.png'),
+(7, 'trabalho', './assets/img/trabalho.png'),
+(8, 'cinema', './assets/img/cinema.png'),
+(9, 'jogos online', './assets/img/jogos_online.png'),
+(10, 'música', './assets/img/musica.png'),
+(11, 'fotografia', './assets/img/fotografia.png'),
+(12, 'moda', './assets/img/moda.png'),
+(13, 'artesanato', './assets/img/artesanato.png'),
+(14, 'aventura', './assets/img/aventura.png'),
+(15, 'viagem', './assets/img/viagem.png');
 
 -- --------------------------------------------------------
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aba Perfil</title>
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <main>
+    <!-- Circle q ao clicar abre a sidebar do perfil -->
+    <div class="main">
+      <div class="profile-circle" id="openSidebar"></div>
+    </div>
+
+    <!-- Arrow q ao clicar fecha a sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="arrow" id="closeSidebar">←</div>
+
+      <!-- Foto de perfil e função trocar imagem -->
+      <div class="circle" id="circle">
+        <img src="Imagens/upload.png" class="upload-icon" id="icon-default" alt="Upload Icon">
+        <img id="profile-img" alt="Foto" class="profile-img">
+        <div class="overlay-text">Trocar imagem</div>
+        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+      </div>
+
+      <!-- Input username -->
+      <div class="form-group">
+        <input type="text" id="username" placeholder="Seu nome..." class="username-input">
+      </div>
+
+      <!-- Big box preferências -->
+      <div class="big-box">
+        <ul>
+          <li>
+            
+          </li>
+        </ul>
+      </div>
+
+      <!-- Bottom box distância -->
+      <div class="form-group">
+        <input type="number" id="distance" placeholder="Distância..." class="distance-input">
+      </div>
+      
+      <!-- Footer box salvar alterações -->
+      <div class="footer-box">
+        <button id="saveChanges" class="save-btn">Salvar alterações</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>

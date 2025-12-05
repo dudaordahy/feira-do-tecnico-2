@@ -1,52 +1,130 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sidebar HTML e CSS</title>
-  <link rel="stylesheet" href="configuracao.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Configurações</title>
+  <link rel="stylesheet" href="configuracao.css" />
 </head>
-<body>
-  <div class="sidebar">
-    <ul>
-      <li><button onclick="voltarPagina()">⬅️ Voltar</button></li>
-      <li><button onclick="mostrarPersonalizacao()">🎨 Personalização</button></li>
-      <li><button onclick="mostrarSuporte()">🛠️ Suporte</button></li>
-      <li><button onclick="mostrarSuporte()">📄 Termos de Uso</button></li>
-      <li><button onclick="mostarConta()">👤 Conta</button></li>
-      <li><button onclick="desologarConta()">🚪 Sair</button></li>
-    </ul>
+<body class="dark-mode">
+  <div class="container">
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+      <ul>
+        <li data-section="voltar">Voltar</li>
+        <li data-section="conta">Conta</li>
+        <li data-section="personalizacao">Personalização</li>
+        <li data-section="suporte">Suporte</li>
+        <li data-section="termos">Termos de Uso</li>
+      </ul>
+    </aside>
+ 
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="content">
+      <!-- CONTA -->
+      <div id="conta" class="section active">
+        <h2>Dados de Cadastro <span class="arrow">▼</span></h2>
+        <div class="dados">
+          <label>Nome completo</label>
+          <input type="text" readonly value="Isabella Rodrigues Ferreira" />
+ 
+          <label>Nome de Usuário</label>
+          <input type="text" readonly value="isabella.rf" />
+ 
+          <label>Email</label>
+          <input type="text" readonly value="isabella@email.com" />
+ 
+          <label>CEP</label>
+          <input type="text" readonly value="12345-678" />
+ 
+          <label>Cidade</label>
+          <input type="text" readonly value="São Paulo" />
+ 
+          <label>Estado</label>
+          <input type="text" readonly value="SP" />
+ 
+          <label>Endereço</label>
+          <input type="text" readonly value="Rua das Flores" />
+ 
+          <label>Número da Residência</label>
+          <input type="text" readonly value="102" />
+ 
+          <label>Senha</label>
+          <input type="password" readonly value="********" />
+        </div>
+ 
+        <h2 class="action">Excluir Conta</h2>
+        <h2 class="action">Sair</h2>
+      </div>
+ 
+      <!-- PERSONALIZAÇÃO -->
+      <div id="personalizacao" class="section">
+        <h2>Personalização</h2>
+ 
+        <!-- Modo claro/escuro -->
+        <div class="personal-item">
+          <p><strong>Modo:</strong></p>
+          <label class="switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+ 
+        <!-- Tamanho da fonte -->
+        <div class="personal-item">
+          <p><strong>Tamanho da Fonte:</strong></p>
+          <select id="fontSizeSelect">
+            <option value="12px">Pequeno</option>
+            <option value="14px" selected>Normal</option>
+            <option value="16px">Médio</option>
+            <option value="18px">Grande</option>
+            <option value="20px">Extra Grande</option>
+          </select>
+        </div>
+ 
+        <!-- Idioma -->
+        <div class="personal-item">
+          <p><strong>Idioma:</strong></p>
+          <select id="languageSelect">
+            <option value="pt-BR" selected>Português (Brasil)</option>
+            <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+          </select>
+        </div>
+      </div>
+ 
+      <!-- SUPORTE -->
+      <div id="suporte" class="section">
+        <h2>Central de Suporte</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">1. Como posso alterar meus dados de cadastro?</button>
+            <div class="faq-answer">Você pode editar seus dados acessando a aba “Conta”.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">2. Esqueci minha senha, o que fazer?</button>
+            <div class="faq-answer">Clique em “Esqueci minha senha” na tela de login e siga as instruções.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">3. Como excluir minha conta?</button>
+            <div class="faq-answer">Na aba “Conta”, clique em “Excluir Conta” e confirme por e-mail.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">4. Meus dados estão seguros?</button>
+            <div class="faq-answer">Sim, todos os dados são protegidos conforme a LGPD.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">5. Como entro em contato com o suporte?</button>
+            <div class="faq-answer">Envie um e-mail para suporte@connect.com.</div>
+          </div>
+        </div>
+      </div>
+ 
+      <div id="voltar" class="section">Voltar à página anterior</div>
+      <div id="termos" class="section">Termos de Uso</div>
+    </main>
   </div>
-
-  <div class="conteudo">
-    <h1 id="titulo">Configurações</h1>
-    <p id="txt_principal">Bem-vindo à sua central de configurações!
-      Aqui você tem total controle sobre sua experiência no site — do visual às suas informações pessoais.
-      <br>
-      <br>
-      🌗 Personalização de Tema:
-      Escolha entre o modo claro, ideal para ambientes bem iluminados, ou o modo escuro, perfeito para uso noturno. O tema selecionado será salvo automaticamente, garantindo que o site continue do jeitinho que você gosta.
-      <br>
-      <br>
-      💬 Suporte e Ajuda:
-      Enfrentou algum problema ou tem dúvidas sobre o funcionamento do site? Nossa equipe de suporte está pronta para te ajudar com tutoriais, contato direto e perguntas frequentes (FAQ).
-      <br>
-      <br>
-      📜 Políticas e Privacidade:
-      Consulte nossas Políticas de Privacidade e Termos de Uso para entender como cuidamos dos seus dados, sua segurança e sua experiência dentro da plataforma.
-      <br>
-      <br>
-      👤 Gerenciar Conta:
-      Edite suas informações pessoais, atualize seu e-mail ou senha, e mantenha seu perfil sempre atualizado.
-      <br>
-      <br>
-      ❌ Excluir Conta:
-      Caso deseje encerrar sua jornada por aqui, você pode excluir sua conta permanentemente. Lembre-se: essa ação é irreversível e todos os seus dados serão removidos com segurança.
-      <br>
-      <br>
-    </p>
-  </div>
-</body>
+ 
   <script src="configuracao.js"></script>
+</body>
 </html>

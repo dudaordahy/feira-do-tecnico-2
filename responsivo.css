@@ -1,0 +1,90 @@
+
+
+/* responsivo config  */
+
+@media (max-width: 480px) {
+
+   
+    .container {
+        width: 95%;
+        height: auto;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: none;
+    }
+
+   
+    .form-box {
+        width: 100%;
+        position: relative;
+        padding: 20px;
+    }
+
+       .input-box input {
+        padding: 12px 45px 12px 15px;
+        font-size: 14px;
+    }
+
+    .input-box img {
+        right: 15px;
+        width: 13px;
+    }
+
+    ul li {
+        margin-left: 10px;    
+        padding-left: 4px;       }
+
+    ul {
+        padding-left: 15px;     }
+
+
+    .top-links {
+        display: flex;
+        flex-wrap: wrap;      
+        justify-content: space-between;
+        gap: 5px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+    }
+
+    .top-links a {
+        font-size: 14px;
+        margin: 0;
+        white-space: nowrap;
+    }
+   
+    .top-links .left-group {
+        display: flex;
+        gap: 12px;
+    }
+
+    .top-links .right-group {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+/* responsivo pag inicial */
+
+@media (max-width: 480px) {
+  .container_escolhas {
+    width: 90%;
+    height: 250px;
+    margin: 0 auto;
+  }
+  #txt_escolha_perfil {
+    font-size: 25px;
+    margin-top: -20px;
+    margin-left: -5px;
+  }
+}

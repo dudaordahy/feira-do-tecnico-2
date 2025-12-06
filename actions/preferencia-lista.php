@@ -13,7 +13,7 @@ $resultado = mysqli_query($conexao,$sql);
 $colecao = array();
 
 // laco que cria o novo array com os dados
-while ($dados = mysqli_fetch_assoc($resultado)) {
+while($dados = mysqli_fetch_assoc($resultado)) {
     array_push($colecao, $dados);
 }
 

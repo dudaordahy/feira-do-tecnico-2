@@ -11,7 +11,7 @@ $sql = "DELETE FROM usuarios_preferencias WHERE UsuarioID = $UsuarioID;";
 mysqli_query($conexao, $sql);
 
 // salva as preferencias do usuario
-foreach($preferencias as $posicao=>$preferencia){
+while($preferencias as $posicao=>$preferencia){
     $sql = "INSERT INTO usuarios_preferencias (UsuarioID, PreferenciaID, Ordem) VALUES ($UsuarioID, $preferencia, $posicao);";
     mysqli_query($conexao, $sql);
 }

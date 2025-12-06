@@ -1,3 +1,35 @@
+document.getElementById("excluir").addEventListener("click", () => {
+    if (!confirm("Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.")) {
+        return;
+    }
+    fetch("./actions/excluirConta.php", {
+        method: "POST"
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.status === "ok") {
+            window.location.href = "./cadastro.php"; // ou página inicial
+        }
+    })
+    .catch(() => alert("Erro ao conectar com o servidor."));
+});
+
+document.getElementById("sair").addEventListener("click", () => {
+    if (!confirm("Tem certeza que deseja sair da sua conta?")) {
+        return;
+    }
+    fetch("./actions/logoff.php", {
+        method: "POST"
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.status === "ok") {
+            window.location.href = "./cadastro.php"; // ou página inicial
+        }
+    })
+    .catch(() => alert("Erro ao conectar com o servidor."));
+});
+
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ===== MENU ===== */

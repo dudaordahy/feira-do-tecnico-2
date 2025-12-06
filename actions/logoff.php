@@ -4,7 +4,14 @@ session_start();
 // torna a sessao vazia
 $_SESSION['Usuario'] = '';
 // destroi a sessao do usuario
-session_destroy();
+$ok = session_destroy();
+
 // redireciona no logoff    
-header('Location: ../cadastro.php');
+header("Content-Type: application/json");
+
+if ($ok) {
+    echo json_encode(["status" => "ok"]);
+} else {
+    echo json_encode(["status" => "erro"]);
+}
 ?>

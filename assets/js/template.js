@@ -45,14 +45,19 @@ let fomr1 = document.getElementById("form1");
 let form2 = document.getElementById("form2");
 let form3 = document.getElementById("form3");
 
-
 fetch('./actions/pegarFoto.php')
 .then(response => response.json())
 .then(data => {
     img_perfil.src = './contents/perfil/' + data.foto_perfil;
+    const fotoAtual = data.foto_perfil;
+    if(fotoAtual.length > 0){
     iconDefault.src = './contents/perfil/' + data.foto_perfil;
     carregarFoto();
     container.style.display ='none';
+    }
+    // else{
+    //     img_pefil.src = '' + './assets/img/user.png';
+    // }
 })
 
 function carregarFoto(){
@@ -77,8 +82,6 @@ document.getElementById("btn1").addEventListener("click", (e) => {
         carregarPreferencias();
     });
 })
-
-
 
 function carregarPreferencias() {
     const listaPai = document.querySelector("#listaPreferencias");
@@ -370,36 +373,3 @@ document.getElementById("btn3").addEventListener("click", (e) => {
     function sairSaveBtn(){
         saveBtn.style.display = "none";
     }
-
-    saveBtn.addEventListener("click", () => {
-        localStorage.setItem("username", username.value);
-        localStorage.setItem("distance", distance.value);
-
-        if (profileImg.src) {
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-            canvas.width = profileImg.naturalWidth;
-            canvas.height = profileImg.naturalHeight;
-            ctx.drawImage(profileImg, 0, 0);
-            localStorage.setItem("profileImage", canvas.toDataURL("image/png"));
-        }
-
-        saveBtn.style.display = "none";
-    });
-
-    /* Carregar dados salvos */
-    window.addEventListener("load", () => {
-        const savedName = localStorage.getItem("username");
-        if (savedName) username.value = savedName;
-
-        const savedDistance = localStorage.getItem("distance");
-        if (savedDistance) distance.value = savedDistance;
-
-        const savedImage = localStorage.getItem("profileImage");
-        if (savedImage) {
-            profileImg.src = savedImage;
-            profileImg.style.display = "block";
-            iconDefault.style.display = "none";
-        }
-    });
-

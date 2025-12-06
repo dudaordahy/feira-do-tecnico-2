@@ -1,55 +1,341 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Aba Perfil</title>
-  <link rel="stylesheet" href="teste.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Termos de Uso & Política de Privacidade — [NOME_DA_PLATAFORMA]</title>
+  <style>
+    :root{
+      --bg:#f7f9fb;
+      --card:#ffffff;
+      --accent:#0b74da;
+      --muted:#6b7280;
+      --radius:12px;
+      --maxw:920px;
+      --pad:22px;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #111827;
+    }
+body{
+  background: linear-gradient(180deg,var(--bg) 0%, #ffffff 100%);
+  padding:40px 20px;
+  display:flex;
+  justify-content:center;
+  font-size:16px;
+  line-height:1.55;
+}
+
+.wrap{
+  width:100%;
+  max-width:var(--maxw);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow: 0 6px 30px rgba(16,24,40,0.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px var(--pad);
+  border-bottom:1px solid #eef2f6;
+  background: linear-gradient(90deg, rgba(11,116,218,0.06), rgba(11,116,218,0.02));
+}
+
+header h1{
+  font-size:18px;
+  margin:0;
+  letter-spacing:0.2px;
+}
+header p{ margin:0; color:var(--muted); font-size:13px; }
+
+.container{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:0;
+  min-height:520px;
+}
+
+/* Sidebar (abas) */
+nav{
+  background:#fbfdff;
+  padding:18px;
+  border-right:1px solid #f1f5f9;
+}
+.tabs{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.tab-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  border:1px solid transparent;
+  background:transparent;
+  color:#0f1724;
+  font-weight:600;
+  transition:all .18s ease;
+}
+.tab-btn small{ color:var(--muted); font-weight:500; display:block; font-size:13px; }
+.tab-btn.active{
+  background:linear-gradient(90deg, rgba(11,116,218,0.06), rgba(11,116,218,0.03));
+  border-color: rgba(11,116,218,0.12);
+  box-shadow: 0 4px 12px rgba(11,116,218,0.06) inset;
+}
+
+/* Conteúdo */
+main{
+  padding:24px;
+}
+
+.doc{
+  display:none;
+  animation:fade .15s ease;
+}
+.doc.active{ display:block; }
+
+h2{ margin-top:0; color:var(--accent); font-size:20px; }
+h3{ margin-bottom:6px; font-size:16px; color:#111827; }
+p{ margin:0 0 14px 0; color:#273241; }
+ul{ margin:0 0 14px 20px; color:#273241; }
+li{ margin-bottom:8px; }
+
+.meta{
+  margin-bottom:18px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+footer.card-foot{
+  padding:14px 18px;
+  border-top:1px solid #eef2f6;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fbfdff;
+}
+.cta{
+  font-size:14px;
+  color:var(--muted);
+}
+.btn{
+  background:var(--accent);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow: 0 6px 18px rgba(11,116,218,0.12);
+}
+
+/* Responsivo */
+@media (max-width:880px){
+  .container{ grid-template-columns: 1fr; }
+  nav{ order:2; border-right:none; border-top:1px solid #f1f5f9; }
+  main{ order:1; }
+}
+
+@keyframes fade{
+  from{ opacity:0; transform:translateY(4px); }
+  to{ opacity:1; transform:none; }
+}
+
+/* Pequena marca visual do documento */
+.doc .section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:12px;
+}
+.muted-block{
+  background:#f8fafc;
+  border-left:4px solid rgba(11,116,218,0.06);
+  padding:12px;
+  border-radius:8px;
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+  </style>
 </head>
 <body>
+  <div class="wrap" role="main" aria-label="Termos e Política [NOME_DA_PLATAFORMA]">
+    <header>
+      <div>
+        <h1>[NOME_DA_PLATAFORMA] — Termos e Política</h1>
+        <p class="meta">Conecta pessoas em [CIDADE] · Última atualização: <strong>[DATA]</strong></p>
+      </div>
+      <div>
+        <a class="btn" href="mailto:[SEU_EMAIL]" title="Contate o suporte">Contato</a>
+      </div>
+    </header>
+
+<div class="container">
+  <nav aria-label="Navegação das políticas">
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-target="termos" role="tab" aria-selected="true">
+        Termos de Uso
+        <small>Regras e responsabilidades</small>
+      </button>
+
+      <button class="tab-btn" data-target="privacidade" role="tab" aria-selected="false">
+        Política de Privacidade
+        <small>Como tratamos seus dados</small>
+      </button>
+    </div>
+
+    <div style="margin-top:16px; font-size:13px; color:var(--muted)">
+      <strong>Nota:</strong>
+      <div class="muted-block">
+        Substitua os campos entre colchetes antes de publicar. Para conformidade com a LGPD, verifique as bases legais e a retenção de dados.
+      </div>
+    </div>
+  </nav>
+
   <main>
-    <!-- Circle q ao clicar abre a sidebar do perfil -->
-    <div class="main">
-      <div class="profile-circle" id="openSidebar"></div>
-    </div>
-
-    <!-- Arrow q ao clicar fecha a sidebar -->
-    <div class="sidebar" id="sidebar">
-      <div class="arrow" id="closeSidebar">←</div>
-
-      <!-- Foto de perfil e função trocar imagem -->
-      <div class="circle" id="circle">
-        <img src="Imagens/upload.png" class="upload-icon" id="icon-default" alt="Upload Icon">
-        <img id="profile-img" alt="Foto" class="profile-img">
-        <div class="overlay-text">Trocar imagem</div>
-        <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file">
+    <!-- TERMOS -->
+    <article id="termos" class="doc active" role="article">
+      <div class="section-title">
+        <h2>Termos de Uso</h2>
+        <small class="meta">Última atualização: [DATA]</small>
       </div>
 
-      <!-- Input username -->
-      <div class="form-group">
-        <input type="text" id="username" placeholder="Seu nome..." class="username-input">
+      <p>Bem-vindo à plataforma <strong>[NOME_DA_PLATAFORMA]</strong>. Ao usar o site/aplicativo você concorda com estes termos. Caso não concorde, não utilize os serviços.</p>
+
+      <h3>1. Objetivo da Plataforma</h3>
+      <p>A plataforma conecta pessoas da cidade de <strong>[CIDADE]</strong>, permitindo criação de perfil com foto, envio de mensagens entre usuários e compartilhamento de localização mediante autorização.</p>
+
+      <h3>2. Cadastro</h3>
+      <ul>
+        <li>Ao se cadastrar, você fornece nome completo, e-mail, endereço/CEP e foto de perfil.</li>
+        <li>Você declara possuir 18 anos ou mais e garante a veracidade das informações.</li>
+      </ul>
+
+      <h3>3. Uso aceitável</h3>
+      <ul>
+        <li>É proibido usar a plataforma para assédio, discriminação, fraude ou atividades ilegais.</li>
+        <li>Publicar fotos de terceiros sem autorização é vedado.</li>
+      </ul>
+
+      <h3>4. Localização</h3>
+      <p>O compartilhamento de localização é opcional e só será exibido a pessoas que você autorizar. Recomendamos cautela ao combinar encontros presenciais.</p>
+
+      <h3>5. Mensagens</h3>
+      <p>As mensagens enviadas entre usuários devem respeitar a legislação vigente. Denúncias podem resultar em análise e remoção de conteúdo e/ou suspensão de conta.</p>
+
+      <h3>6. Conteúdo do usuário</h3>
+      <p>Ao enviar fotos ou textos, você concede à plataforma licença para armazenar e exibir o conteúdo conforme suas permissões. Você mantém a autoria do conteúdo inserido.</p>
+
+      <h3>7. Limitação de responsabilidade</h3>
+      <p>A plataforma não responde por interações fora do ambiente digital, nem por dados inverídicos fornecidos pelos próprios usuários.</p>
+
+      <h3>8. Alterações</h3>
+      <p>Estes termos podem ser atualizados. A continuidade do uso da plataforma implica aceitação de eventuais alterações.</p>
+
+      <h3>9. Encerramento</h3>
+      <p>Você pode solicitar exclusão de conta a qualquer momento; a plataforma pode suspender contas que violem estes termos.</p>
+
+      <h3>Contato</h3>
+      <p>Suporte: <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></p>
+    </article>
+
+    <!-- PRIVACIDADE -->
+    <article id="privacidade" class="doc" role="article">
+      <div class="section-title">
+        <h2>Política de Privacidade</h2>
+        <small class="meta">Última atualização: [DATA]</small>
       </div>
 
-      <!-- Big box preferências -->
-      <div class="big-box">
-        <ul>
-          <li>
-            
-          </li>
-        </ul>
-      </div>
+      <p>Esta Política descreve como tratamos os dados pessoais dos usuários de <strong>[NOME_DA_PLATAFORMA]</strong>.</p>
 
-      <!-- Bottom box distância -->
-      <div class="form-group">
-        <input type="number" id="distance" placeholder="Distância..." class="distance-input">
-      </div>
-      
-      <!-- Footer box salvar alterações -->
-      <div class="footer-box">
-        <button id="saveChanges" class="save-btn">Salvar alterações</button>
-      </div>
-    </div>
+      <h3>1. Quais dados coletamos</h3>
+      <ul>
+        <li>Dados fornecidos: nome completo, e-mail, endereço e CEP, foto de perfil, mensagens e preferências.</li>
+        <li>Dados técnicos: IP, tipo de dispositivo e navegador.</li>
+        <li>Localização: apenas com consentimento explícito do usuário (aproximada ou exata).</li>
+      </ul>
+
+      <h3>2. Finalidade</h3>
+      <ul>
+        <li>Criação e manutenção da conta;</li>
+        <li>Permitir comunicação entre usuários;</li>
+        <li>Exibir informações no perfil;</li>
+        <li>Segurança, moderação e prevenção de abusos;</li>
+        <li>Notificações e melhorias no serviço.</li>
+      </ul>
+
+      <h3>3. Compartilhamento</h3>
+      <p>Não vendemos seus dados. Podemos compartilhar dados com:</p>
+      <ul>
+        <li>Outros usuários, apenas quando você permitir (ex.: foto, nome e localização liberada);</li>
+        <li>Autoridades, quando requisitado por lei;</li>
+        <li>Fornecedores que prestam serviços essenciais (hospedagem, processamento).</li>
+      </ul>
+
+      <h3>4. Base legal e LGPD</h3>
+      <p>Tratamos dados com base em: execução de contrato (prestação do serviço), consentimento (ex.: localização), obrigação legal e legítimo interesse (segurança e prevenção de fraudes). Recomenda-se uma revisão jurídica para adequação completa à LGPD.</p>
+
+      <h3>5. Armazenamento e segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas para proteger dados, mas nenhum sistema é 100% infalível. Periodicamente revisamos práticas de segurança.</p>
+
+      <h3>6. Direitos do titular</h3>
+      <ul>
+        <li>Acessar, corrigir e atualizar seus dados;</li>
+        <li>Solicitar exclusão da conta;</li>
+        <li>Revogar consentimentos (ex.: localização);</li>
+        <li>Solicitar portabilidade quando aplicável.</li>
+      </ul>
+
+      <h3>7. Cookies</h3>
+      <p>Utilizamos cookies e tecnologias semelhantes para manter sessão e melhorar experiência. Usuários podem configurar o navegador para rejeitá-los.</p>
+
+      <h3>8. Menores</h3>
+      <p>A plataforma não é destinada a menores de 18 anos. Contas suspeitas poderão ser removidas.</p>
+
+      <h3>9. Contato e solicitações</h3>
+      <p>Para exercer direitos ou tirar dúvidas: <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></p>
+    </article>
+
   </main>
+</div>
 
-  <script src="teste.js"></script>
+<footer class="card-foot">
+  <div class="cta">Para questões legais, consulte um advogado e verifique conformidade com a LGPD.</div>
+  <div>© <strong>[NOME_DA_PLATAFORMA]</strong> — [DATA]</div>
+</footer>
+
+  </div>
+
+  <script>
+    // Controle de abas simples e acessível
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // atualizar botoes
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected','false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+
+        // mostrar doc correspondente
+        const target = btn.getAttribute('data-target');
+        document.querySelectorAll('.doc').forEach(d => d.classList.remove('active'));
+        const el = document.getElementById(target);
+        if(el) el.classList.add('active');
+        // rolar para topo do documento ativo em dispositivos pequenos
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+
 </body>
 </html>

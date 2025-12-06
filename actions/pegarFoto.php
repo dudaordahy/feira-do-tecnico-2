@@ -3,16 +3,15 @@ include_once '../includes/conexao.php';
 include_once '../includes/logado.php';
 
 $usuarioID = $_SESSION['Usuario']['UsuarioID'];
+
 $sql = 'SELECT Imagem FROM usuarios WHERE UsuarioID = '.$usuarioID;
+$resultado = mysqli_query($conexao, $sql);
 
-// executa o comando e retorna as informacoes
-$resultado = mysqli_query($conexao,$sql);
-
-// dados
 $dados = mysqli_fetch_assoc($resultado);
-$foto_perfil = $dados['Imagem'];
 
-// Garante retorno somente JSON
+// Se a imagem não existir, retorna string vazia
+$foto_perfil = $dados['Imagem'] ?? ""; 
+
 header('Content-Type: application/json');
 
 echo json_encode([
@@ -20,3 +19,4 @@ echo json_encode([
 ]);
 exit;
 ?>
+

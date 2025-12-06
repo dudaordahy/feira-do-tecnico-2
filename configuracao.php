@@ -130,34 +130,71 @@ include_once './includes/header-configuracao.php';
         <h2>Central de Suporte</h2>
         <div class="faq-container">
           <div class="faq-item">
-            <button class="faq-question">1. Como alterar dados?</button>
-            <div class="faq-answer">Na aba “Conta”.</div>
+            <button class="faq-question">1. Como posso alterar meus dados?<button>
+            <div class="faq-answer">Você pode editar suas informações pessoais acessando a aba “Conta” no menu principal. Lá é possível atualizar nome, foto, endereço, localização e outras preferências.</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">2. Esqueci minha senha</button>
-            <div class="faq-answer">Clique em “Esqueci minha senha”.</div>
+            <button class="faq-question">7. Outros usuários podem ver meu endereço?</button>
+            <div class="faq-answer">Não. Seu endereço completo nunca é exibido publicamente. Apenas informações que você habilitar para compartilhar serão mostradas.</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">3. Excluir conta?</button>
-            <div class="faq-answer">Use o botão “Excluir Conta”.</div>
+            <button class="faq-question">3. Como excluir minha conta?</button>
+            <div class="faq-answer">Dentro das configurações, selecione “Excluir Conta”. Após confirmar, todos os seus dados serão removidos permanentemente do sistema.</div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question">4. Meus dados estão seguros?</button>
-            <div class="faq-answer">Sim. Protegidos pela LGPD.</div>
+            <div class="faq-answer">Sim. Todas as informações são armazenadas seguindo padrões de segurança e protegidas conforme a LGPD (Lei Geral de Proteção de Dados).</div>
           </div>
 
           <div class="faq-item">
-            <button class="faq-question">5. Contato com suporte?</button>
-            <div class="faq-answer">Email: suporte@connect.com</div>
+            <button class="faq-question">5. Como entrar em contato com o suporte?</button>
+            <div class="faq-answer">Você pode falar com nossa equipe pelo e-mail: conecta@gmail.com</div>
           </div>
         </div>
+
       </section>
 
       <section id="voltar" class="section">Voltar</section>
-      <section id="termos" class="section">Termos de Uso</section>
+      <section id="termos" class="section">
+      <h1>Política de Privacidade</h1>
+    <p>Última atualização: 2025</p>
+
+    <h2>1. Coleta de Dados</h2>
+    <p>Nosso site coleta informações fornecidas pelo usuário, incluindo nome completo, endereço, CEP, e-mail, imagem de perfil e mensagens enviadas dentro da plataforma. Também podemos coletar localização, caso o usuário permita.</p>
+
+    <h2>2. Uso dos Dados</h2>
+    <p>Os dados são utilizados para criar contas, conectar usuários da mesma cidade, permitir envio de mensagens, exibir perfis públicos e melhorar a segurança e funcionamento do sistema.</p>
+
+    <h2>3. Compartilhamento</h2>
+    <p>Os dados não são vendidos. Informações como foto, nome e localização só são exibidas a outros usuários quando o próprio usuário permitir.</p>
+
+    <h2>4. Segurança</h2>
+    <p>Tomamos medidas básicas para proteger os dados, evitando acesso não autorizado, mas nenhum sistema é 100% seguro.</p>
+
+    <h2>5. Permissões de Localização</h2>
+    <p>A localização só é usada quando o usuário habilita essa função e pode ser desativada a qualquer momento.</p>
+
+    <h2>6. Exclusão de Dados</h2>
+    <p>O usuário pode solicitar a exclusão da conta e de seus dados entrando em contato com o suporte.</p>
+
+
+    <h1>Termos de Uso</h1>
+
+    <h2>1. Uso da Plataforma</h2>
+    <p>O usuário concorda em usar a plataforma de forma responsável, sem enviar conteúdo ofensivo, ilegal ou que viole direitos de terceiros.</p>
+
+    <h2>2. Mensagens</h2>
+    <p>O site oferece troca de mensagens entre usuários, mas não nos responsabilizamos pelo conteúdo enviado por terceiros.</p>
+
+    <h2>3. Conta do Usuário</h2>
+    <p>O usuário é responsável por manter suas informações corretas e proteger seus dados de acesso.</p>
+
+    <h2>4. Modificações</h2>
+    <p>Podemos alterar estes termos e políticas a qualquer momento, sempre exibindo a data da última atualização.</p>
+  </section>
     </main>
   </div>
 <?php

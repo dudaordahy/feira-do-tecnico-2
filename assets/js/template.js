@@ -49,16 +49,13 @@ fetch('./actions/pegarFoto.php')
 .then(response => response.json())
 .then(data => {
     img_perfil.src = './contents/perfil/' + data.foto_perfil;
-    const fotoAtual = data.foto_perfil;
-    if(fotoAtual.length > 0){
+
     iconDefault.src = './contents/perfil/' + data.foto_perfil;
     carregarFoto();
-    container.style.display ='none';
+    
     }
-    // else{
-    //     img_pefil.src = '' + './assets/img/user.png';
-    // }
-})
+   
+)
 
 function carregarFoto(){
     img_pefil.style.width = "40px";
